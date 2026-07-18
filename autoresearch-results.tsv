@@ -1,0 +1,18 @@
+iteration	commit	metric	delta	status	guard	description
+0	-	71.982836	0.000000	baseline	pass	initial coherent-edge baseline
+1	6492f41	76.967480	4.984644	keep	pass	decouple sharpness from texture-biased noise estimate
+2	5a178c3	76.548326	-0.419154	discard	skip	soften coherence penalty for fine layered texture
+3	b638a2a	78.306178	1.338698	keep	pass	widen sharpness response for stronger edge discrimination
+4	6b450eb	78.076134	-0.230044	discard	skip	weight summaries linearly by coherent edge evidence
+5	c998c07	78.664791	0.358613	keep	pass	retain finer interface gradients by default
+6	84aaea3	77.821997	-0.842794	discard	skip	localize orientation integration to curved sheets
+7	383c83e	79.386251	0.721460	keep	pass	stabilize orientation over a wider neighbourhood
+8	b744216	79.811942	0.425691	keep	pass	preserve subvoxel interface sharpness
+9	1532878	80.900191	1.088249	keep	pass	emphasize retained interface sharpness
+10	8e85e62	82.016736	1.116545	keep	pass	sharpen the separability response curve
+11	-	80.647723	0.000000	baseline	pass	expanded benchmark with untouched official 3D crop degradations
+12	ac46e75	94.351536	13.703813	keep	pass	add scale-normalized interface sharpness
+13	90f1dd8	94.726821	0.375285	keep	pass	subtract isotropic tensor energy from edge strength
+14	fdcdaad	93.886129	-0.840692	discard	skip	strengthen the isotropic-noise coherence veto
+15	-	95.679202	0.000000	baseline	pass	replace synthetic hand score with measured sheet-detection AUC
+16	333f238	95.966458	0.287256	keep	pass	mildly sharpen coherence response without a hard noise veto

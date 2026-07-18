@@ -1,0 +1,1458 @@
+{
+  "schema": "layerlens-controlled-degradation-validation-v1",
+  "interpretation": "These are nested synthetic perturbations of real official CT crops. They test expected response ordering, not performance against independent scan-quality ground truth. Labels select reproducible papyrus-rich crops and are never read by LayerLens.",
+  "protocol": {
+    "seed": 20260718,
+    "crop_size": 64,
+    "blur_sigmas_voxels": [
+      0.0,
+      0.8,
+      1.6,
+      2.4
+    ],
+    "noise_sigmas_normalized_intensity": [
+      0.0,
+      0.02,
+      0.05,
+      0.1
+    ],
+    "normalization": "shared crop p1/p99 followed by fixed [0,1] metric bounds",
+    "noise_nesting": "one standard-normal field scaled by every noise sigma"
+  },
+  "aggregate": {
+    "cubes": 24,
+    "mean_blur_quality_order_rank": 0.9916666666666667,
+    "mean_blur_quality_order_rank_95ci": [
+      0.975,
+      1.0
+    ],
+    "mean_noise_quality_order_rank": 1.0,
+    "mean_noise_quality_order_rank_95ci": [
+      1.0,
+      1.0
+    ],
+    "mean_combined_quality_order_rank": 0.9958333333333332,
+    "perfect_blur_orderings": 23,
+    "perfect_noise_orderings": 24,
+    "mean_blur_endpoint_relative_drop": 0.7445873426178397,
+    "mean_noise_endpoint_relative_drop": 0.12213896417890373
+  },
+  "cubes": [
+    {
+      "sample": "sample_00040",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          128,
+          256,
+          160
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.1036529541015625,
+        "ignore_fraction": 0.10906219482421875,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 181.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.48658107861359484,
+          0.3564980873880049,
+          0.16724834388128282,
+          0.07478714737121375
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.8463007489228657
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.48658107861359484,
+          0.4833738492560597,
+          0.4689317302018146,
+          0.4289945893170405
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.1183492162511422
+      }
+    },
+    {
+      "sample": "sample_00052",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          0,
+          224,
+          0
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.16733551025390625,
+        "ignore_fraction": 0.14452743530273438,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 180.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.4339226659428541,
+          0.32307210331779007,
+          0.15833326159571304,
+          0.07696705439326841
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.8226249504020962
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.4339226659428541,
+          0.4318603904207407,
+          0.42194050980201825,
+          0.3914402418814448
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.097903215009755
+      }
+    },
+    {
+      "sample": "sample_00064",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          192,
+          128,
+          32
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.2000579833984375,
+        "ignore_fraction": 0.0,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 12.0,
+          "upper": 178.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.46194141783492554,
+          0.3616815757496534,
+          0.18345838305843198,
+          0.08310613374011357
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.8200937813075435
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.46194141783492554,
+          0.45947139848977814,
+          0.448287757849455,
+          0.41684655719455027
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.09762030183768862
+      }
+    },
+    {
+      "sample": "sample_00067",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          256,
+          64,
+          256
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.12048721313476562,
+        "ignore_fraction": 0.3988533020019531,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 183.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.42587539410346154,
+          0.30796182516655113,
+          0.14011435543790843,
+          0.06446047351689159
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.8486400613667958
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.42587539410346154,
+          0.42368475508640235,
+          0.4138591269407461,
+          0.38405826077301003
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.09819100588913694
+      }
+    },
+    {
+      "sample": "sample_00124",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          224,
+          256,
+          128
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.13912582397460938,
+        "ignore_fraction": 0.18255996704101562,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 170.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.273829673798394,
+          0.21095995775128432,
+          0.12153713150394145,
+          0.05852725282419448
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.7862640231340124
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.273829673798394,
+          0.2715526324588494,
+          0.2624918386022909,
+          0.23852146513121775
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.12894222958893706
+      }
+    },
+    {
+      "sample": "sample_00127",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          160,
+          256,
+          256
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.1460723876953125,
+        "ignore_fraction": 0.193878173828125,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 188.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.45802924197995926,
+          0.33507309299208643,
+          0.1506850222139435,
+          0.059525034984486004
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.8700409722157204
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.45802924197995926,
+          0.45609777849911004,
+          0.446639547501603,
+          0.41675275043699017
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.09011759023188111
+      }
+    },
+    {
+      "sample": "sample_00134",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          256,
+          64,
+          128
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.14322280883789062,
+        "ignore_fraction": 0.046875,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 37.0,
+          "upper": 186.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.08599108111886716,
+          0.07474470501154765,
+          0.052323246827271054,
+          0.033922932265403855
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.6055063871273869
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.08599108111886716,
+          0.0845216194932265,
+          0.07874506779867867,
+          0.06498849810634393
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.24424141130974913
+      }
+    },
+    {
+      "sample": "sample_00177",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          192,
+          224,
+          96
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.20584487915039062,
+        "ignore_fraction": 0.06298065185546875,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 60.0,
+          "upper": 208.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.07770902789071814,
+          0.07501520611311178,
+          0.05780075707248767,
+          0.03787858946971174
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.5125587013779116
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.07770902789071814,
+          0.07685893063328665,
+          0.0729525271102284,
+          0.06262867881407203
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.19406173884781497
+      }
+    },
+    {
+      "sample": "sample_00268",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          64,
+          224,
+          256
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.210113525390625,
+        "ignore_fraction": 0.06436920166015625,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 204.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.17791768687877643,
+          0.10152300515395554,
+          0.054521315150895144,
+          0.034472777324953574
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.8062431120271843
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.17791768687877643,
+          0.1748618422847537,
+          0.1651822835515841,
+          0.14346561181573245
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.19364052932251632
+      }
+    },
+    {
+      "sample": "sample_00347",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          32,
+          64,
+          128
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.100128173828125,
+        "ignore_fraction": 0.40753936767578125,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 54.0,
+          "upper": 162.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.26476611530826893,
+          0.23606592067895316,
+          0.1341271009061626,
+          0.06193812763720477
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.7660647490140882
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.26476611530826893,
+          0.26300287346807605,
+          0.2554770219059129,
+          0.23516765219791594
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.1117909785241639
+      }
+    },
+    {
+      "sample": "sample_00369",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          96,
+          96,
+          32
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.09886550903320312,
+        "ignore_fraction": 0.08856964111328125,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 55.0,
+          "upper": 171.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.26205975514051677,
+          0.2239154154748919,
+          0.12115198920322635,
+          0.06221514231907873
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.7625917711564719
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.26205975514051677,
+          0.2593227356447742,
+          0.24846840629119427,
+          0.22301406729656914
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.14899536108858563
+      }
+    },
+    {
+      "sample": "sample_00385",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          224,
+          64,
+          160
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.1465911865234375,
+        "ignore_fraction": 0.2873649597167969,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 53.0,
+          "upper": 172.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.25775212010843196,
+          0.2108602245729417,
+          0.11391751464567713,
+          0.05612424314495046
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.7822549699248257
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.25775212010843196,
+          0.2556630319213093,
+          0.24659658975192814,
+          0.22179115296039378
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.13951763862469882
+      }
+    },
+    {
+      "sample": "sample_00400",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          128,
+          32,
+          256
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.1000823974609375,
+        "ignore_fraction": 0.4388236999511719,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 164.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.31560904682289337,
+          0.23309132553132206,
+          0.11265439995400237,
+          0.04788404551794211
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.8482805039970459
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.31560904682289337,
+          0.3127042650622305,
+          0.3009091644743428,
+          0.2667077722580055
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.15494256282307778
+      }
+    },
+    {
+      "sample": "sample_00428",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          192,
+          256,
+          96
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.14641952514648438,
+        "ignore_fraction": 0.12942886352539062,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 233.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.1995679084359346,
+          0.19293661519131672,
+          0.10291655530506064,
+          0.04343684891764144
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.7823455220928692
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.1995679084359346,
+          0.19792140296998198,
+          0.19137648123346815,
+          0.17158802444103363
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.14020232117571696
+      }
+    },
+    {
+      "sample": "sample_00466",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          96,
+          32,
+          32
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.12405014038085938,
+        "ignore_fraction": 0.09209060668945312,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 169.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.2388197051326618,
+          0.21320321959764335,
+          0.11578060442311079,
+          0.05820018457079796
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.7563007435317435
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.2388197051326618,
+          0.2377681119021723,
+          0.23272988559585964,
+          0.21682852507490286
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.092082770328952
+      }
+    },
+    {
+      "sample": "sample_00486",
+      "source_shape": [
+        256,
+        256,
+        256
+      ],
+      "crop": {
+        "start": [
+          0,
+          64,
+          64
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.11341094970703125,
+        "ignore_fraction": 0.18117523193359375,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 178.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.21385450542945073,
+          0.20482973055586348,
+          0.1266808629463795,
+          0.06911817391351262
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.6767981400498749
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.21385450542945073,
+          0.21351013238761435,
+          0.20992917046689166,
+          0.19736125831839513
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.07712368312247982
+      }
+    },
+    {
+      "sample": "sample_00559",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          128,
+          96,
+          32
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.17165756225585938,
+        "ignore_fraction": 0.02996826171875,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 3.0,
+          "upper": 171.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.15133530839276818,
+          0.15714500615709498,
+          0.10871378290796747,
+          0.06530804433304536
+        ],
+        "quality_order_rank": 0.7999999999999999,
+        "strictly_decreasing": false,
+        "endpoint_relative_drop": 0.5684546783785044
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.15133530839276818,
+          0.15117289960231337,
+          0.1485197264745259,
+          0.13875637748285125
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.08311960403364825
+      }
+    },
+    {
+      "sample": "sample_00603",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          256,
+          256,
+          64
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.13402557373046875,
+        "ignore_fraction": 0.13892364501953125,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 177.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.24000574428056468,
+          0.2077969187729466,
+          0.128040499399197,
+          0.07517786186596874
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.68676640598199
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.24000574428056468,
+          0.2389925774477518,
+          0.2344297984499378,
+          0.22020909300416328
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.08248407276977206
+      }
+    },
+    {
+      "sample": "sample_00636",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          32,
+          96,
+          256
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.13359832763671875,
+        "ignore_fraction": 0.046875,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 183.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.19427659547347842,
+          0.1794506212355124,
+          0.10240105204440476,
+          0.05683112700403875
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.7074731165350433
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.19427659547347842,
+          0.1929709900606348,
+          0.18800561897583207,
+          0.17349739866271555
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.10695676831334805
+      }
+    },
+    {
+      "sample": "sample_00662",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          0,
+          256,
+          256
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.1225433349609375,
+        "ignore_fraction": 0.13413619995117188,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 175.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.2490285831771814,
+          0.2200598622696477,
+          0.12530004453772742,
+          0.06333198272844716
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.7456838812619873
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.2490285831771814,
+          0.24783472937067172,
+          0.24276360353387025,
+          0.2268707566777924
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.08897704117612844
+      }
+    },
+    {
+      "sample": "sample_00738",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          32,
+          256,
+          256
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.15763473510742188,
+        "ignore_fraction": 0.11792755126953125,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 176.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.18931142946827856,
+          0.14902307020896458,
+          0.09144949009859239,
+          0.05461205566250389
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.7115226702587717
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.18931142946827856,
+          0.18751767070105677,
+          0.18223002975017372,
+          0.16767126851504344
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.11430984919408257
+      }
+    },
+    {
+      "sample": "sample_00785",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          256,
+          96,
+          128
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.18739700317382812,
+        "ignore_fraction": 0.13594436645507812,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 1.0,
+          "upper": 169.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.17584733232099364,
+          0.17307112406914762,
+          0.10359843659775693,
+          0.05083120682913853
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.7109355816876956
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.17584733232099364,
+          0.1750072213940333,
+          0.17055701573464063,
+          0.15644502278144218
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.11033610395712047
+      }
+    },
+    {
+      "sample": "sample_00806",
+      "source_shape": [
+        320,
+        320,
+        320
+      ],
+      "crop": {
+        "start": [
+          64,
+          256,
+          64
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.169677734375,
+        "ignore_fraction": 0.17487335205078125,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 185.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.16521891439221223,
+          0.15933325760223546,
+          0.09647903456158571,
+          0.047809518591365764
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.7106292656186385
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.16521891439221223,
+          0.16369182610234684,
+          0.15856216931967151,
+          0.14412211092109029
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.1276900017696543
+      }
+    },
+    {
+      "sample": "sample_00882",
+      "source_shape": [
+        256,
+        256,
+        256
+      ],
+      "crop": {
+        "start": [
+          32,
+          192,
+          192
+        ],
+        "size": 64,
+        "selection_strategy": "maximum label-1 count on a 32-voxel grid, labels sampled every 4 voxels",
+        "recto_fraction": 0.12641143798828125,
+        "ignore_fraction": 0.16193771362304688,
+        "normalization": {
+          "percentile_low": 1.0,
+          "percentile_high": 99.0,
+          "lower": 0.0,
+          "upper": 178.0
+        }
+      },
+      "blur": {
+        "levels": [
+          0.0,
+          0.8,
+          1.6,
+          2.4
+        ],
+        "scores": [
+          0.23040656544267538,
+          0.19364605577837815,
+          0.1120228492500947,
+          0.060891504856124594
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.7357214854570875
+      },
+      "noise": {
+        "levels": [
+          0.0,
+          0.02,
+          0.05,
+          0.1
+        ],
+        "scores": [
+          0.23040656544267538,
+          0.22891590236534504,
+          0.22401153932133933,
+          0.20973007723358403
+        ],
+        "quality_order_rank": 1.0,
+        "strictly_decreasing": true,
+        "endpoint_relative_drop": 0.08973914510363903
+      }
+    }
+  ]
+}

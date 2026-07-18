@@ -1,0 +1,81 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "layerlens"
+version = "0.1.0"
+description = "Label-free local layer-separability diagnostics for Vesuvius Challenge CT volumes"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["vesuvius-challenge", "computed-tomography", "ome-zarr", "quality-control"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Image Processing",
+]
+
+dependencies = [
+  "imagecodecs>=2026.1.14",
+  "numcodecs>=0.14",
+  "numpy>=2.2",
+  "scipy>=1.15",
+  "tifffile>=2025.2.18",
+  "zarr>=3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/streetquant/layerlens"
+Repository = "https://github.com/streetquant/layerlens.git"
+Documentation = "https://github.com/streetquant/layerlens/tree/main/docs"
+Issues = "https://github.com/streetquant/layerlens/issues"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3",
+  "ruff>=0.9",
+]
+remote = [
+  "fsspec>=2025.5",
+  "s3fs>=2025.5",
+]
+
+[project.scripts]
+layerlens = "layerlens.cli:main"
+layerlens-report = "layerlens.report:main"
+layerlens-vc3d = "layerlens.vc3d:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/layerlens"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/CHANGELOG.md",
+  "/CONTRIBUTING.md",
+  "/LICENSE",
+  "/PROGRAM.md",
+  "/README.md",
+  "/SUBMISSION.md",
+  "/benchmarks",
+  "/docs",
+  "/pyproject.toml",
+  "/src",
+  "/tests",
+  "/uv.lock",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

@@ -1,0 +1,323 @@
+{
+  "schema": "layerlens-surface-validation-sample-v1",
+  "state": "ready",
+  "source": "ScrollPrize Vesuvius Challenge surface-label bucket",
+  "api_root": "https://huggingface.co/api/buckets/scrollprize/datasets/tree",
+  "population_size": 892,
+  "seed": 20260718,
+  "count": 24,
+  "samples": [
+    {
+      "sample": "sample_00040",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00040.image.tif",
+        "size": 27444112,
+        "xet_hash": "df1449e48b560c97f44724d754008a39c6e6a41c131b4231277fbeb47f711379"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00040.label.tif",
+        "size": 1215817,
+        "xet_hash": "1d671b4fbfb817f2b96177e11330f15159304fa79b2b1f5c793de5e73b2f50a6"
+      }
+    },
+    {
+      "sample": "sample_00052",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00052.image.tif",
+        "size": 29473311,
+        "xet_hash": "0365c019dd7c4003b0e35ca31d9843fa718271d1a0eff85a38200e3589fe57a9"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00052.label.tif",
+        "size": 690201,
+        "xet_hash": "85cd2ccd0e3e9441cc72c90509a7e7da418da1ec3227d88879c335f667afb3d2"
+      }
+    },
+    {
+      "sample": "sample_00064",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00064.image.tif",
+        "size": 29306374,
+        "xet_hash": "5c62df788f997f02fc26a82bd4c005807b527fed96059de7e85ccf93d16093b5"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00064.label.tif",
+        "size": 1155545,
+        "xet_hash": "0147600f79132da15d46ff42d451d9fa3048cba7f62c724a78f911de9972a71b"
+      }
+    },
+    {
+      "sample": "sample_00067",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00067.image.tif",
+        "size": 33633089,
+        "xet_hash": "9582aba79678f2e1540981060586dcea7bbcc9c14c5e0b1ccdb70e940cb03b08"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00067.label.tif",
+        "size": 1186761,
+        "xet_hash": "32f3e703788424209e2b8c06bc56767df52948b53b8b3e9193b611b0dc8c1eac"
+      }
+    },
+    {
+      "sample": "sample_00124",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00124.image.tif",
+        "size": 33392371,
+        "xet_hash": "94355e2b1557e7fcc7b4c8724d072f33a8164964d60a0098e0262cb2278082e1"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00124.label.tif",
+        "size": 879817,
+        "xet_hash": "d73d8fd2ae5f61f1117a09b92803fa170df30ef3f55e94a0f9118e183cfca869"
+      }
+    },
+    {
+      "sample": "sample_00127",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00127.image.tif",
+        "size": 35658970,
+        "xet_hash": "037c17bee969fbbd8ad7327ec9b4a7f775dc3c88ac90fb14c19ba2a41ec7f675"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00127.label.tif",
+        "size": 641913,
+        "xet_hash": "2633d9665bd8ed6d5a628eefa9358745fb8d1371fd581e931dc6d66489e42e3e"
+      }
+    },
+    {
+      "sample": "sample_00134",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00134.image.tif",
+        "size": 19364887,
+        "xet_hash": "f84764f2ab933ec390eb30d063ddb7d3d1d66ad48937b3c68edabce16b95adbd"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00134.label.tif",
+        "size": 32821210,
+        "xet_hash": "fb84dd011b66f97a1fe6836192fa99976da76294eaca0ede170ed16dec50289d"
+      }
+    },
+    {
+      "sample": "sample_00177",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00177.image.tif",
+        "size": 31977682,
+        "xet_hash": "8cff5aca0d898242a579d2188ec7824855f26a66ab429450f26c0ce50f7b0883"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00177.label.tif",
+        "size": 32821210,
+        "xet_hash": "d979aadcadf741c9db33b500eb3472e0f1bc6e1ff6cc57f04cac8456b2c9bb55"
+      }
+    },
+    {
+      "sample": "sample_00268",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00268.image.tif",
+        "size": 31729110,
+        "xet_hash": "211317231cfa3354aa6ba0b73a1d7d275eae5615f104b05bcd0dc901b2c8856f"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00268.label.tif",
+        "size": 871849,
+        "xet_hash": "31a6ce81780b7636ef11c0b76b6e38978096b238aa02c645a16677ffc6231e91"
+      }
+    },
+    {
+      "sample": "sample_00347",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00347.image.tif",
+        "size": 30176715,
+        "xet_hash": "9fe3e568d9e73cb199f74f07b1f0ca6645013ddbcdbe34949f116510f80b9b8a"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00347.label.tif",
+        "size": 32821210,
+        "xet_hash": "d3b856df7599e70d2ed8e178d881c96bd2329f4ec6ad2d807af32da7c2cca05d"
+      }
+    },
+    {
+      "sample": "sample_00369",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00369.image.tif",
+        "size": 30350112,
+        "xet_hash": "1d9813121e51a0493095f00337cc31a334fc249241cc7b9c82b5a4db59a5204d"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00369.label.tif",
+        "size": 804857,
+        "xet_hash": "d467e987286dfbc55d3c0e58164576d90a31b4ae722c6d21c101ab5988cfc4ff"
+      }
+    },
+    {
+      "sample": "sample_00385",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00385.image.tif",
+        "size": 28030941,
+        "xet_hash": "6c75623c03d19f74f1e6f60fb389c9d09f222c928572a18e228005c86e82039e"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00385.label.tif",
+        "size": 32821210,
+        "xet_hash": "1c574418a7e06b7aae92342513e7d0523582b3bd59eca3bfd6fd420e2b55d1f6"
+      }
+    },
+    {
+      "sample": "sample_00400",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00400.image.tif",
+        "size": 29838485,
+        "xet_hash": "a582dd246a0571cb22ed4078e05b5d3570f67329bda6797b8ee9df7c7a6a725a"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00400.label.tif",
+        "size": 32821210,
+        "xet_hash": "b526ea60a0f7cf6316507765b985336a864c7ca528645898364e2652d5513df9"
+      }
+    },
+    {
+      "sample": "sample_00428",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00428.image.tif",
+        "size": 36829420,
+        "xet_hash": "1f539c5fbef6d5e59da637eef387a76f21180b73c058b91840768d1306a4e25c"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00428.label.tif",
+        "size": 32821210,
+        "xet_hash": "3de52bfd64666f90e8e6f4ed9eea7a3ad38e73a96f4b5f8106c57549ea55d0c6"
+      }
+    },
+    {
+      "sample": "sample_00466",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00466.image.tif",
+        "size": 36152836,
+        "xet_hash": "ebfdc70f9a075f2e945a7edcd9f45120aaff986b8d22edcdcdd862e579803137"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00466.label.tif",
+        "size": 32821210,
+        "xet_hash": "ca7c91a03df8fbd0b38c4c6bf387d9de12883f08175a8f6a5f78c838a40e7517"
+      }
+    },
+    {
+      "sample": "sample_00486",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00486.image.tif",
+        "size": 19043905,
+        "xet_hash": "a63dce80e9cb6e9010ff580b8d58174d241df1283e9a2635cdcd316338d4dfad"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00486.label.tif",
+        "size": 541016,
+        "xet_hash": "e5967283d8d619ab1dc5e08b8ecd082c1bfea8a37a8c08099a55bff94eaa52e2"
+      }
+    },
+    {
+      "sample": "sample_00559",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00559.image.tif",
+        "size": 35108220,
+        "xet_hash": "e417392db8ae8c001825a5fcebc886aaff4465f42ed910ff82ea82bdfb3d3131"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00559.label.tif",
+        "size": 32821210,
+        "xet_hash": "ed142379738e29694e21c191da51c0425e8ffc9e353cb297546e88076c7ec0ca"
+      }
+    },
+    {
+      "sample": "sample_00603",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00603.image.tif",
+        "size": 34867321,
+        "xet_hash": "a1bb295791d0786f5f7bce9f07659b79b37ca691d7502129913caefc1b1bcff4"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00603.label.tif",
+        "size": 32821210,
+        "xet_hash": "ceb85f09678de32fba288a4e5a1ac1ae635e40f910bf15ff5068dd7266b9760d"
+      }
+    },
+    {
+      "sample": "sample_00636",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00636.image.tif",
+        "size": 37589181,
+        "xet_hash": "a5467bec751560a0454e6c55c8b0bf472ee735d8156d1330a89939a6af8b397c"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00636.label.tif",
+        "size": 1204857,
+        "xet_hash": "6283f65bf4f6891ba3428fd4666d5c5c76eccdf518fba9f9a24f5d81033a9b9f"
+      }
+    },
+    {
+      "sample": "sample_00662",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00662.image.tif",
+        "size": 36462973,
+        "xet_hash": "61cf29c9bef03707b2bb3846b4a40037711e0de0dabb24c83bb28f0e5402a99f"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00662.label.tif",
+        "size": 714281,
+        "xet_hash": "fa2a6a0d309ff23c34d27a54ac37ccac86be57d0412f8651f4ec1a86bf0e680b"
+      }
+    },
+    {
+      "sample": "sample_00738",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00738.image.tif",
+        "size": 36377063,
+        "xet_hash": "ec7e3f824eadd674959c733305170fdb5c2ba0005fc12f349132eb0822adebb5"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00738.label.tif",
+        "size": 32821210,
+        "xet_hash": "09a6ff4c5ea5402e304395b703c64e0cda7d0d19c3a75fadf32f24898e81800a"
+      }
+    },
+    {
+      "sample": "sample_00785",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00785.image.tif",
+        "size": 37178137,
+        "xet_hash": "bd9382260fd61c0cb26bd2999bea4c17d6581888dcb529a3f9f3865b2d038c2c"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00785.label.tif",
+        "size": 32821210,
+        "xet_hash": "a72700cd377f54cff5b3a4417b07de46d7edbd7718614d906dde249441c9ecd2"
+      }
+    },
+    {
+      "sample": "sample_00806",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00806.image.tif",
+        "size": 36687125,
+        "xet_hash": "febdbf05227c8a9c6a633ca89ce8daf02e3344d151ac9d3c4b26c4e1e595c6fc"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00806.label.tif",
+        "size": 32821210,
+        "xet_hash": "e342a1efaf05fb3988088d79cbd8ef2867715865cd00344e59dfa64da4766386"
+      }
+    },
+    {
+      "sample": "sample_00882",
+      "image": {
+        "path": "data/raw/surface_kaggle/sample_00882.image.tif",
+        "size": 18703676,
+        "xet_hash": "515cfe7cff2aef82b0875d164c2ffead6b239852679fd3656806526ba3067f1f"
+      },
+      "label": {
+        "path": "data/raw/surface_kaggle/sample_00882.label.tif",
+        "size": 464904,
+        "xet_hash": "c43e389c0648878d5d4e01a8fe28aa36f023c85bcc0d6f562331dec26f5ac97a"
+      }
+    }
+  ]
+}

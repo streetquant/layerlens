@@ -1,0 +1,16 @@
+.cache/
+.venv/
+__pycache__/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+codex-session-id.txt
+user-prompt.md
+
+# Large challenge inputs and generated outputs stay local.
+data/raw/
+data/cache/
+outputs/

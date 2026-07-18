@@ -1,0 +1,429 @@
+{
+  "schema": "layerlens-surface-corpus-validation-v1",
+  "interpretation": "Recto enrichment is an external localization diagnostic, not a supervised training target or a complete scan-quality ground truth. Label 0 can contain legitimate non-recto papyrus structure; label 2 is excluded.",
+  "aggregate": {
+    "cubes": 24,
+    "recto_mean_exceeds_other": 24,
+    "mean_recto_quality_auc": 0.6442066943762295,
+    "mean_recto_quality_auc_95ci": [
+      0.6154351037810041,
+      0.6719826985226599
+    ],
+    "mean_recto_quality_delta": 0.08731667107592027,
+    "mean_recto_quality_delta_95ci": [
+      0.0630844861967489,
+      0.11430584030070648
+    ],
+    "median_cube_score": 0.23771079785422106
+  },
+  "cubes": [
+    {
+      "sample": "sample_00040",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.4401501474415642,
+      "poor_fraction": 0.50452734375,
+      "runtime_seconds": 20.893546025268734,
+      "recto_voxels": 23996,
+      "other_voxels": 290008,
+      "recto_mean_quality": 0.5410038828849792,
+      "other_mean_quality": 0.2659718096256256,
+      "recto_quality_delta": 0.27503207325935364,
+      "recto_quality_auc": 0.8028457667950175
+    },
+    {
+      "sample": "sample_00052",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.41979947159060954,
+      "poor_fraction": 0.37778125,
+      "runtime_seconds": 20.866525768768042,
+      "recto_voxels": 39259,
+      "other_voxels": 367447,
+      "recto_mean_quality": 0.4559442102909088,
+      "other_mean_quality": 0.29745951294898987,
+      "recto_quality_delta": 0.15848469734191895,
+      "recto_quality_auc": 0.7127453354662905
+    },
+    {
+      "sample": "sample_00064",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.4285617620259996,
+      "poor_fraction": 0.42816015625,
+      "runtime_seconds": 20.153831236064434,
+      "recto_voxels": 42289,
+      "other_voxels": 432263,
+      "recto_mean_quality": 0.49904102087020874,
+      "other_mean_quality": 0.2868698537349701,
+      "recto_quality_delta": 0.21217116713523865,
+      "recto_quality_auc": 0.7631837643419389
+    },
+    {
+      "sample": "sample_00067",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.445286198775135,
+      "poor_fraction": 0.30581640625,
+      "runtime_seconds": 19.919852567836642,
+      "recto_voxels": 24581,
+      "other_voxels": 201565,
+      "recto_mean_quality": 0.48175254464149475,
+      "other_mean_quality": 0.2991241216659546,
+      "recto_quality_delta": 0.18262842297554016,
+      "recto_quality_auc": 0.7357832555550002
+    },
+    {
+      "sample": "sample_00124",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.2653373446132133,
+      "poor_fraction": 0.6429609375,
+      "runtime_seconds": 21.93538270611316,
+      "recto_voxels": 19735,
+      "other_voxels": 150533,
+      "recto_mean_quality": 0.24967655539512634,
+      "other_mean_quality": 0.16885477304458618,
+      "recto_quality_delta": 0.08082178235054016,
+      "recto_quality_auc": 0.651946639818487
+    },
+    {
+      "sample": "sample_00127",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.44259423105785944,
+      "poor_fraction": 0.239,
+      "runtime_seconds": 15.906419670000105,
+      "recto_voxels": 9531,
+      "other_voxels": 53374,
+      "recto_mean_quality": 0.48478004336357117,
+      "other_mean_quality": 0.3565836250782013,
+      "recto_quality_delta": 0.12819641828536987,
+      "recto_quality_auc": 0.6647305750658796
+    },
+    {
+      "sample": "sample_00134",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.14256699966574912,
+      "poor_fraction": 0.92822265625,
+      "runtime_seconds": 15.732136902000093,
+      "recto_voxels": 22322,
+      "other_voxels": 205922,
+      "recto_mean_quality": 0.11684795469045639,
+      "other_mean_quality": 0.08368150889873505,
+      "recto_quality_delta": 0.033166445791721344,
+      "recto_quality_auc": 0.6270268662656991
+    },
+    {
+      "sample": "sample_00177",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.1257428814522419,
+      "poor_fraction": 0.911130859375,
+      "runtime_seconds": 15.888326435000181,
+      "recto_voxels": 49159,
+      "other_voxels": 189608,
+      "recto_mean_quality": 0.07769837975502014,
+      "other_mean_quality": 0.0738629549741745,
+      "recto_quality_delta": 0.003835424780845642,
+      "recto_quality_auc": 0.5085770957449879
+    },
+    {
+      "sample": "sample_00268",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.1349703275932837,
+      "poor_fraction": 0.8942421875,
+      "runtime_seconds": 15.99828051700024,
+      "recto_voxels": 28559,
+      "other_voxels": 115042,
+      "recto_mean_quality": 0.07324661314487457,
+      "other_mean_quality": 0.07114098966121674,
+      "recto_quality_delta": 0.002105623483657837,
+      "recto_quality_auc": 0.5057862116309776
+    },
+    {
+      "sample": "sample_00347",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.2416073114554179,
+      "poor_fraction": 0.689384765625,
+      "runtime_seconds": 16.118739529999857,
+      "recto_voxels": 18817,
+      "other_voxels": 139715,
+      "recto_mean_quality": 0.21410734951496124,
+      "other_mean_quality": 0.18059931695461273,
+      "recto_quality_delta": 0.03350803256034851,
+      "recto_quality_auc": 0.5692347028446834
+    },
+    {
+      "sample": "sample_00369",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.24849475537644758,
+      "poor_fraction": 0.70770703125,
+      "runtime_seconds": 16.21251040900006,
+      "recto_voxels": 12570,
+      "other_voxels": 172246,
+      "recto_mean_quality": 0.2419719099998474,
+      "other_mean_quality": 0.15885041654109955,
+      "recto_quality_delta": 0.08312149345874786,
+      "recto_quality_auc": 0.6536362860093597
+    },
+    {
+      "sample": "sample_00385",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.298178036988365,
+      "poor_fraction": 0.649515625,
+      "runtime_seconds": 16.194082320000234,
+      "recto_voxels": 15483,
+      "other_voxels": 158964,
+      "recto_mean_quality": 0.31805697083473206,
+      "other_mean_quality": 0.20108093321323395,
+      "recto_quality_delta": 0.11697603762149811,
+      "recto_quality_auc": 0.6845143448390103
+    },
+    {
+      "sample": "sample_00400",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.29574438893408206,
+      "poor_fraction": 0.558083984375,
+      "runtime_seconds": 16.194555135999963,
+      "recto_voxels": 9339,
+      "other_voxels": 46058,
+      "recto_mean_quality": 0.3177202641963959,
+      "other_mean_quality": 0.27080193161964417,
+      "recto_quality_delta": 0.04691833257675171,
+      "recto_quality_auc": 0.5787682619535973
+    },
+    {
+      "sample": "sample_00428",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.2386388412207901,
+      "poor_fraction": 0.676203125,
+      "runtime_seconds": 15.83473125699993,
+      "recto_voxels": 25003,
+      "other_voxels": 167470,
+      "recto_mean_quality": 0.2399197220802307,
+      "other_mean_quality": 0.19978471100330353,
+      "recto_quality_delta": 0.040135011076927185,
+      "recto_quality_auc": 0.5687331213453167
+    },
+    {
+      "sample": "sample_00466",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.25788092132170454,
+      "poor_fraction": 0.662373046875,
+      "runtime_seconds": 16.029245168000216,
+      "recto_voxels": 23702,
+      "other_voxels": 196846,
+      "recto_mean_quality": 0.2777758836746216,
+      "other_mean_quality": 0.18223129212856293,
+      "recto_quality_delta": 0.09554459154605865,
+      "recto_quality_auc": 0.6677966595012477
+    },
+    {
+      "sample": "sample_00486",
+      "shape": [
+        256,
+        256,
+        256
+      ],
+      "score": 0.2354531583694417,
+      "poor_fraction": 0.6686515808105469,
+      "runtime_seconds": 8.968408169000213,
+      "recto_voxels": 9007,
+      "other_voxels": 87833,
+      "recto_mean_quality": 0.22635817527770996,
+      "other_mean_quality": 0.15734006464481354,
+      "recto_quality_delta": 0.06901811063289642,
+      "recto_quality_auc": 0.6383871150828485
+    },
+    {
+      "sample": "sample_00559",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.210743562174597,
+      "poor_fraction": 0.728578125,
+      "runtime_seconds": 16.17779794900025,
+      "recto_voxels": 22895,
+      "other_voxels": 147326,
+      "recto_mean_quality": 0.1888863891363144,
+      "other_mean_quality": 0.15068045258522034,
+      "recto_quality_delta": 0.038205936551094055,
+      "recto_quality_auc": 0.5969726538976423
+    },
+    {
+      "sample": "sample_00603",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.23678275448765204,
+      "poor_fraction": 0.714283203125,
+      "runtime_seconds": 16.255614355000034,
+      "recto_voxels": 23209,
+      "other_voxels": 216804,
+      "recto_mean_quality": 0.3032597005367279,
+      "other_mean_quality": 0.18120425939559937,
+      "recto_quality_delta": 0.12205544114112854,
+      "recto_quality_auc": 0.7100958073757545
+    },
+    {
+      "sample": "sample_00636",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.19996516261331154,
+      "poor_fraction": 0.755431640625,
+      "runtime_seconds": 16.08666032500014,
+      "recto_voxels": 29863,
+      "other_voxels": 271969,
+      "recto_mean_quality": 0.216311976313591,
+      "other_mean_quality": 0.14237689971923828,
+      "recto_quality_delta": 0.07393507659435272,
+      "recto_quality_auc": 0.654817401694955
+    },
+    {
+      "sample": "sample_00662",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.20049547029996323,
+      "poor_fraction": 0.761693359375,
+      "runtime_seconds": 16.201928757000132,
+      "recto_voxels": 10709,
+      "other_voxels": 125554,
+      "recto_mean_quality": 0.21855387091636658,
+      "other_mean_quality": 0.1433117389678955,
+      "recto_quality_delta": 0.07524213194847107,
+      "recto_quality_auc": 0.6527583378257273
+    },
+    {
+      "sample": "sample_00738",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.16944070131456804,
+      "poor_fraction": 0.813748046875,
+      "runtime_seconds": 16.78624283299996,
+      "recto_voxels": 19170,
+      "other_voxels": 109795,
+      "recto_mean_quality": 0.16348561644554138,
+      "other_mean_quality": 0.12460596114397049,
+      "recto_quality_delta": 0.03887965530157089,
+      "recto_quality_auc": 0.5988347927207158
+    },
+    {
+      "sample": "sample_00785",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.19599963990533242,
+      "poor_fraction": 0.767919921875,
+      "runtime_seconds": 16.812377649000155,
+      "recto_voxels": 30803,
+      "other_voxels": 244721,
+      "recto_mean_quality": 0.19338248670101166,
+      "other_mean_quality": 0.1305752992630005,
+      "recto_quality_delta": 0.06280718743801117,
+      "recto_quality_auc": 0.6448079017569308
+    },
+    {
+      "sample": "sample_00806",
+      "shape": [
+        320,
+        320,
+        320
+      ],
+      "score": 0.19206852238787464,
+      "poor_fraction": 0.769091796875,
+      "runtime_seconds": 17.36214133500016,
+      "recto_voxels": 16404,
+      "other_voxels": 127524,
+      "recto_mean_quality": 0.19195203483104706,
+      "other_mean_quality": 0.11818718165159225,
+      "recto_quality_delta": 0.0737648531794548,
+      "recto_quality_auc": 0.6605344068382009
+    },
+    {
+      "sample": "sample_00882",
+      "shape": [
+        256,
+        256,
+        256
+      ],
+      "score": 0.2039558538791314,
+      "poor_fraction": 0.7353477478027344,
+      "runtime_seconds": 9.17708119100007,
+      "recto_voxels": 11159,
+      "other_voxels": 75631,
+      "recto_mean_quality": 0.20772641897201538,
+      "other_mean_quality": 0.158680260181427,
+      "recto_quality_delta": 0.04904615879058838,
+      "recto_quality_auc": 0.6084433606592379
+    }
+  ]
+}

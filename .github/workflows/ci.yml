@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+
+      - name: Install uv and Python ${{ matrix.python-version }}
+        uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
+        with:
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
+
+      - name: Install locked development environment
+        run: uv sync --frozen --extra dev
+
+      - name: Lint
+        run: uv run --frozen ruff check src tests benchmarks
+
+      - name: Test
+        run: uv run --frozen pytest -q
+
+      - name: Build and smoke-test package commands
+        if: matrix.python-version == '3.13'
+        run: |
+          uv build
+          uv run --frozen layerlens --help
+          uv run --frozen layerlens-report --help
+          uv run --frozen layerlens-vc3d --help
