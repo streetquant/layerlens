@@ -10,14 +10,16 @@ papyrus regions.
 - **Award:** the best qualifying monthly open-source progress submission is
   guaranteed US$20,000
 - **Submission route:** register and share the work through the official
-  Vesuvius Challenge community, then submit the monthly Progress Prize form
+  Vesuvius Challenge community, then submit the official
+  [monthly Progress Prize form](https://forms.gle/xoF5C3QsYutKP97x7)
 - **Release condition:** source, documentation, examples, and reusable outputs
   must be public
 
 The authoritative pages are the official [prize description](https://scrollprize.org/prizes),
 [2026 open problems](https://scrollprize.org/2026_open_problems), and
 [data catalog](https://scrollprize.org/data). Entrants remain responsible for
-checking the live rules and deadline before submitting.
+checking the live rules and deadline before submitting. The deadline and form
+above were rechecked against the live prize page on July 18, 2026.
 
 ## Rubric fit
 

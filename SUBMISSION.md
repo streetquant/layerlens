@@ -156,12 +156,14 @@ published evidence.
 
 ## Human-only submission checklist
 
-- [ ] Confirm the live Progress Prize deadline and rules.
+- [x] Confirm the live Progress Prize deadline and rules (rechecked July 18,
+      2026: July 31, 2026 at 11:59 PM Pacific).
 - [x] Choose or authorize the public GitHub owner/repository name.
-- [ ] Push the repository and publish the `v0.1.0` release.
-- [ ] Replace the four public-link placeholders above.
+- [x] Push the repository and publish the `v0.1.0` release.
+- [ ] Replace the community-post placeholder above.
 - [ ] Run the visual VC3D smoke test on the current release and capture one
       screenshot or short clip.
 - [ ] Post the announcement in the official Vesuvius Challenge community and
       collect the message URL plus any early feedback.
-- [ ] Submit the official Progress Prize form before the deadline.
+- [ ] Submit the official [Progress Prize form](https://forms.gle/xoF5C3QsYutKP97x7)
+      before the deadline.
