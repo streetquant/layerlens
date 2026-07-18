@@ -142,6 +142,64 @@ published evidence.
 - Demo/report: [two-minute data-free walkthrough](https://github.com/streetquant/layerlens/blob/main/SUBMISSION.md#two-minute-data-free-demo)
 - Community post: `<DISCORD_MESSAGE_URL>`
 
+## Progress Prize form answers
+
+### Public contribution URLs
+
+- https://github.com/streetquant/layerlens
+- https://github.com/streetquant/layerlens/releases/tag/v0.1.0
+- https://github.com/streetquant/layerlens/blob/main/SUBMISSION.md#two-minute-data-free-demo
+
+### Short description of contribution impact
+
+LayerLens increases the probability of reading complete scrolls by identifying
+local CT regions where compression, haze, noise, or weakly separated papyrus
+layers are likely to make surface localization and tracing unreliable before
+expensive downstream work is committed. It needs no labels, model weights, or
+GPU, and writes standard OME-Zarr maps plus JSON, self-contained HTML, and
+compact VC3D overlays. On controlled degradations of 24 official Vesuvius
+surface cubes, it achieved 0.9958 combined blur/noise ordering and preserved
+the correct direction for all 24 noise sequences, while Tenengrad and variance
+of Laplacian rewarded added noise. This gives scanning, segmentation, and
+tracing teams an interoperable, inspectable way to triage difficult regions
+and diagnose whether weak image evidence, rather than only a downstream model,
+is the likely bottleneck.
+
+The form's full-name and individual/team-description fields must be completed
+by the submitting person. Do not replace them with a repository handle unless
+that is the submitter's intended public identity.
+
+## Required community-projects pull request
+
+The July 2026 form requires a pull request to the official
+[`awesome-scroll-tools` community-projects list](https://github.com/ScrollPrize/villa/blob/main/scrollprize.org/docs/20_community_projects.md).
+Add this entry under **Data access/visualization → Tools**, replacing the final
+placeholder with the submitter's chosen public attribution:
+
+```markdown
+- [LayerLens](https://github.com/streetquant/layerlens): CPU-first, label-free local papyrus-layer separability diagnostics for Vesuvius CT volumes, with OME-Zarr quality maps, self-contained reports, and compact VC3D overlays. By <NAME_OR_TEAM>
+```
+
+Suggested pull-request title:
+
+```text
+docs: add LayerLens to community projects
+```
+
+Suggested pull-request body:
+
+```text
+Adds LayerLens, a public MIT-licensed local scan-quality and papyrus-layer
+separability diagnostic, to Data access/visualization tools.
+
+Repository: https://github.com/streetquant/layerlens
+Release: https://github.com/streetquant/layerlens/releases/tag/v0.1.0
+
+Validation includes controlled degradations and baseline comparison on 24
+official Vesuvius surface cubes. Outputs include OME-Zarr, JSON,
+self-contained HTML, and compact VC3D overlays.
+```
+
 ## Community announcement draft
 
 > I released LayerLens, a label-free local layer-separability QC tool for
@@ -160,6 +218,8 @@ published evidence.
       2026: July 31, 2026 at 11:59 PM Pacific).
 - [x] Choose or authorize the public GitHub owner/repository name.
 - [x] Push the repository and publish the `v0.1.0` release.
+- [ ] Submit the required community-projects pull request above and record its
+      URL.
 - [ ] Replace the community-post placeholder above.
 - [ ] Run the visual VC3D smoke test on the current release and capture one
       screenshot or short clip.

@@ -10,7 +10,8 @@ papyrus regions.
 - **Award:** the best qualifying monthly open-source progress submission is
   guaranteed US$20,000
 - **Submission route:** register and share the work through the official
-  Vesuvius Challenge community, then submit the official
+  Vesuvius Challenge community, submit a pull request adding the project to
+  the official community-projects list, then submit the official
   [monthly Progress Prize form](https://forms.gle/xoF5C3QsYutKP97x7)
 - **Release condition:** source, documentation, examples, and reusable outputs
   must be public
@@ -37,5 +38,6 @@ feedback. LayerLens addresses those points with:
 - a public-ready Python package, pinned lockfile, CI, MIT license, exact
   machine-readable evidence, and reproducible walkthrough.
 
-The ready-to-paste entry narrative and final human checklist are in
+The ready-to-paste entry narrative, required community-projects pull-request
+text, form answer, and final human checklist are in
 [`SUBMISSION.md`](SUBMISSION.md).
