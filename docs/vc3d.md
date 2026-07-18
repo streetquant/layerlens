@@ -130,18 +130,23 @@ repository at commit `1fe401acfb25` (2026-07-18 checkout), including:
   `core/src/VolumePkg.cpp` for coordinate tags and project entries.
 
 The official `VC3D-1fe401a-2026-07-17-linux-x86_64.AppImage` built from that
-same commit was also exercised with its bundled native `vc_zarr_to_tiff`
-reader. It opened the generated demo base at level 0 as `96x96x96 uint16` and
-the populated overlay at level 1 as `48x48x48 uint8`, then decoded every slice
-successfully. The tested AppImage SHA-256 was
+same commit was also exercised headlessly, without a display server, through
+its bundled native `vc_zarr_to_tiff` CLI reader. It opened the generated demo
+base at level 0 as `96x96x96 uint16` and the populated overlay at level 1 as
+`48x48x48 uint8`, then decoded every slice successfully. A file-syscall trace
+found zero attempted persistent writes outside the repository-local test
+paths. The
+tested AppImage SHA-256 was
 `381fa57c6fd8b9f3183019fc828ea076f8480ce812ab859bcf7d38d58d1e3e3c`.
 This checks the actual C++ Zarr metadata, compressor, chunk, and dtype path;
-it does not substitute for visually checking project loading and overlay
-compositing in the GUI.
+it does not claim visual overlay-compositing validation. The machine-readable
+commands, exit codes, slice layouts, boundary result, and representative TIFF
+hashes are in
+[`docs/evidence/vc3d_cli_validation_report.json`](evidence/vc3d_cli_validation_report.json).
 
 Automated tests assert the on-disk Zarr v2 metadata, compression, sparse fine
 levels, irregular-edge padding, identity/dyadic transforms, `meta.json`,
 project-relative locations, matching coordinate tags, the complete data-free
 project, overwrite behavior, and CLI generation. A native VC3D executable is
-not bundled with LayerLens; the source and native-reader checks do not replace
-an end-user visual smoke test on each future VC3D release.
+not bundled with LayerLens; repeat the native-reader check for each future
+VC3D release.

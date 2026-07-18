@@ -80,7 +80,7 @@ to reproduce every result. It does not redistribute challenge scans or labels.
 | Recto mean above other-valid mean | 24/24 cubes |
 | Mean recto-vs-other AUC | 0.6442 (95% CI 0.6154–0.6720) |
 | Lazy TIFF runtime, 320³ reference cubes | 15.7–21.9 s |
-| Official VC3D native-reader decode | 96/96 base + 48/48 overlay slices |
+| Official VC3D headless native-reader decode | 96/96 base + 48/48 overlay slices |
 
 Exact values and negative controls:
 
@@ -88,6 +88,7 @@ Exact values and negative controls:
 - [`docs/evidence/surface_validation_report.json`](docs/evidence/surface_validation_report.json)
 - [`docs/evidence/degradation_validation_report.json`](docs/evidence/degradation_validation_report.json)
 - [`docs/evidence/baseline_comparison_report.json`](docs/evidence/baseline_comparison_report.json)
+- [`docs/evidence/vc3d_cli_validation_report.json`](docs/evidence/vc3d_cli_validation_report.json)
 
 ## Two-minute data-free demo
 
@@ -105,9 +106,10 @@ quality overlay follows that change. Or open
 `outputs/demo/layerlens-demo.volpkg.json` directly in VC3D; the same command
 generates its base volume and compact risk overlay. The committed browser
 screenshot is [`docs/assets/layerlens-report.png`](docs/assets/layerlens-report.png).
-The official VC3D AppImage's native C++ reader successfully decoded all slices
-of both generated Zarr payloads; the exact compatibility target and AppImage
-hash are in [`docs/vc3d.md`](docs/vc3d.md).
+The official VC3D AppImage's native C++ CLI reader successfully decoded all
+slices of both generated Zarr payloads without a display server; the exact
+compatibility target, AppImage hash, and machine-readable report are in
+[`docs/vc3d.md`](docs/vc3d.md).
 
 ## Real-data use
 
@@ -173,11 +175,11 @@ that is the submitter's intended public identity.
 
 The July 2026 form requires a pull request to the official
 [`awesome-scroll-tools` community-projects list](https://github.com/ScrollPrize/villa/blob/main/scrollprize.org/docs/20_community_projects.md).
-Add this entry under **Data access/visualization → Tools**, replacing the final
-placeholder with the submitter's chosen public attribution:
+Add this entry under **Data access/visualization → Tools** using the public
+repository-owner attribution:
 
 ```markdown
-- [LayerLens](https://github.com/streetquant/layerlens): CPU-first, label-free local papyrus-layer separability diagnostics for Vesuvius CT volumes, with OME-Zarr quality maps, self-contained reports, and compact VC3D overlays. By <NAME_OR_TEAM>
+- [LayerLens](https://github.com/streetquant/layerlens): CPU-first, label-free local papyrus-layer separability diagnostics for Vesuvius CT volumes. Produces OME-Zarr quality maps, self-contained HTML reports, and compact VC3D overlays. By streetquant
 ```
 
 Suggested pull-request title:
@@ -221,8 +223,8 @@ self-contained HTML, and compact VC3D overlays.
 - [ ] Submit the required community-projects pull request above and record its
       URL.
 - [ ] Replace the community-post placeholder above.
-- [ ] Run the visual VC3D smoke test on the current release and capture one
-      screenshot or short clip.
+- [x] Re-run the official VC3D native CLI reader headlessly on the current
+      release (96/96 base and 48/48 overlay slices decoded).
 - [ ] Post the announcement in the official Vesuvius Challenge community and
       collect the message URL plus any early feedback.
 - [ ] Submit the official [Progress Prize form](https://forms.gle/xoF5C3QsYutKP97x7)

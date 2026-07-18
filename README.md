@@ -153,8 +153,11 @@ This one command writes the source TIFF, native analysis, self-contained HTML,
 VC3D base volume, compact risk overlay, and portable
 `outputs/demo/layerlens-demo.volpkg.json` review project. Open the HTML in a
 browser or the project in VC3D; no challenge data is needed. The generated
-base and physical overlay level were decoded successfully by the native C++
-reader bundled in the official VC3D AppImage built from commit `1fe401a`.
+base and physical overlay level were decoded successfully, headlessly and
+without a display server, by the native C++ CLI reader bundled in the official
+VC3D AppImage built from commit `1fe401a`. The exact commands and results are
+in the
+[`VC3D CLI validation report`](docs/evidence/vc3d_cli_validation_report.json).
 
 To build a deterministic external validation sample from the official
 surface-label corpus:
