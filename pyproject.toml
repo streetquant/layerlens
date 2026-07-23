@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "layerlens"
-version = "0.1.0"
+version = "0.2.0"
 description = "Label-free local layer-separability diagnostics for Vesuvius Challenge CT volumes"
 readme = "README.md"
 requires-python = ">=3.11"

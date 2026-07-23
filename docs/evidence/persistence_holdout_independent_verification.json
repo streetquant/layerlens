@@ -1,0 +1,84 @@
+{
+  "alternate_metrics": {
+    "numpy_finite_difference_box": {
+      "ring": {
+        "bonferroni_t_lower": 0.011108012772472425,
+        "mean": 0.014777199092749152,
+        "positive_cube_fraction": 1.0,
+        "wilcoxon_greater_pvalue": 5.960464477539063e-08
+      },
+      "streak": {
+        "bonferroni_t_lower": 0.012806925345129271,
+        "mean": 0.016292347391186204,
+        "positive_cube_fraction": 1.0,
+        "wilcoxon_greater_pvalue": 5.960464477539063e-08
+      }
+    },
+    "scipy_gaussian_derivative_box": {
+      "ring": {
+        "bonferroni_t_lower": 0.009562019367979215,
+        "mean": 0.01291745852858856,
+        "positive_cube_fraction": 1.0,
+        "wilcoxon_greater_pvalue": 5.960464477539063e-08
+      },
+      "streak": {
+        "bonferroni_t_lower": 0.012474484232189173,
+        "mean": 0.015773433005298942,
+        "positive_cube_fraction": 1.0,
+        "wilcoxon_greater_pvalue": 5.960464477539063e-08
+      }
+    }
+  },
+  "errors": [],
+  "independent_bootstrap": {
+    "ring": {
+      "pure_python_interval": [
+        0.012863563261629268,
+        0.02475139275556996
+      ],
+      "same_positive_lower_decision": true
+    },
+    "streak": {
+      "pure_python_interval": [
+        0.013927658463141495,
+        0.025440786228753096
+      ],
+      "same_positive_lower_decision": true
+    }
+  },
+  "integrity_passed": true,
+  "interpretation_limit": "Sensitivity analyses are secondary and cannot change the preregistered primary decision. Agreement does not turn persistence into an artifact probability or establish natural-artifact prevalence.",
+  "precision": {
+    "ring": {
+      "absolute_error": "7.0034043e-19",
+      "agreement": true,
+      "mpmath_50_mean": "0.018588052884012155185",
+      "reported_mean": "0.0185880528840122"
+    },
+    "streak": {
+      "absolute_error": "6.8104131e-19",
+      "agreement": true,
+      "mpmath_50_mean": "0.01922010617697220079166666666666666666666666666666665",
+      "reported_mean": "0.0192201061769722"
+    }
+  },
+  "primary_sensitivity": {
+    "ring": {
+      "bonferroni_t_lower": 0.011960724129464709,
+      "mean": 0.018588052884012156,
+      "positive_cube_fraction": 1.0,
+      "wilcoxon_greater_pvalue": 5.960464477539063e-08
+    },
+    "streak": {
+      "bonferroni_t_lower": 0.012959970527460951,
+      "mean": 0.0192201061769722,
+      "positive_cube_fraction": 1.0,
+      "wilcoxon_greater_pvalue": 5.960464477539063e-08
+    }
+  },
+  "schema": "layerlens-persistence-holdout-independent-verification-v1",
+  "source_crop_manifest_sha256": "6a2c362782a17aa81ef966d90291e31bd9131c744279532087090a6e2312fb49",
+  "source_records_sha256": "b6897747fec7fbf27c7f23e6de273ac959ce2beb67e09f8be0ea7131bd03f5be",
+  "source_result_sha256": "d473dd6574d8e670d8300418983334255b67fb62a3eceb51bc9ae33bbf8320c1",
+  "verifier_sha256": "959f1aa8cc2a0503761fa91f30a3e417eb8ceb7ad489d57685be1c49ca0d1141"
+}

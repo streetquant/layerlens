@@ -14,3 +14,8 @@ user-prompt.md
 data/raw/
 data/cache/
 outputs/
+
+# Local research artifacts and self-contained nested run repositories.
+runs/
+.research-cache/
+.tmp/

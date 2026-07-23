@@ -1,0 +1,657 @@
+{
+  "exclusions_sha256": "ed5084b05f7073de3ce6f68ee1287a9c298a562f93785accfd326515a600e0f0",
+  "samples": [
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00047.image.tif",
+        "sha256": "756a7440c5016e46235181c0ae21dfe1082df26c2a749266b4603d98e10dffd5",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 28585157,
+        "source_path": "surfaces/kaggle/images/sample_00047.tif",
+        "xet_hash": "cfa7067140da0b11cca6227b6a025a312d4e37d46962f0384f7355f4c6767f97"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00047.label.tif",
+        "sha256": "bc7938920c50026af21020089bd52202059c06243e2e6a1fade5cfa937d74a32",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 1039001,
+        "source_path": "surfaces/kaggle/labels/sample_00047.tif",
+        "xet_hash": "9f0e84255891a11d2379e1484bb4915524df5c4ffe3663ee27afcaec00b8ace4"
+      },
+      "sample": "sample_00047"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00157.image.tif",
+        "sha256": "bcb0980b269116caa7ec789abe72b0e11eb71468df772cc6527583f2f9762351",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 33870966,
+        "source_path": "surfaces/kaggle/images/sample_00157.tif",
+        "xet_hash": "f05769256e5b1bcabce90199a7ba170c91f9543d30abdd1a910bf9dded0772c1"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00157.label.tif",
+        "sha256": "7956fdd6ac558f6c916aa2466803ba1aac42676b6bf088e02354bd1d42200b36",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00157.tif",
+        "xet_hash": "523cec5c88ca999f1f50b8960322f28028ad452fdf4ed2516d7dd9ce94e78cb4"
+      },
+      "sample": "sample_00157"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00162.image.tif",
+        "sha256": "48c52e53b03be276a470f254654fbc2b5f3c7b2ded5e7de51fb5c5c3b36186fc",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 34363260,
+        "source_path": "surfaces/kaggle/images/sample_00162.tif",
+        "xet_hash": "b266f179e1e93fff895863fc0c79ccffb455b285530724e7be55473eb980daca"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00162.label.tif",
+        "sha256": "d969ba5b56e75a21e072e1dcfe9ce4334bbb4afe44d139e0c3386cfc44bd8163",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 522473,
+        "source_path": "surfaces/kaggle/labels/sample_00162.tif",
+        "xet_hash": "f802b53aa0236f02e936687570b8c7a4b2a5052d71b3cb46ed9f3785b3bed04b"
+      },
+      "sample": "sample_00162"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00165.image.tif",
+        "sha256": "fcd6c70655815ba32a37c114f9c882196a79155c179614efa8f38766a726680d",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32407450,
+        "source_path": "surfaces/kaggle/images/sample_00165.tif",
+        "xet_hash": "e5324d7169d85e2464d1590d963bc5d8ddb71697ca68f7b38f435172ca7e25d5"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00165.label.tif",
+        "sha256": "67fdd2c858d0be2087fd5ccec186f4ef2ea506048279fa0cad10a28ab3ce187e",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 1053385,
+        "source_path": "surfaces/kaggle/labels/sample_00165.tif",
+        "xet_hash": "bf44e24029f15fdafd1002700f2ca626c16ad57079edbbab5a42e284a618ca52"
+      },
+      "sample": "sample_00165"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00187.image.tif",
+        "sha256": "17cad797ff9bf50b4bacc6d00c9864e945b4239c0227f1a71401a904c6cd2905",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 30461616,
+        "source_path": "surfaces/kaggle/images/sample_00187.tif",
+        "xet_hash": "9d3f273c2415968c380c01de4a7290dd08cfcf597e33631c2f4a56795918a9b5"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00187.label.tif",
+        "sha256": "b8c52e4d2b42e07c54076b6b02a255f24535d30c1eb286768ddcb9dd5f1a5780",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00187.tif",
+        "xet_hash": "a29529316e5c7c24b6a3f8171c429b4d042ca2935c1b6994fb9f64682c881ccb"
+      },
+      "sample": "sample_00187"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00200.image.tif",
+        "sha256": "b3da556c39f9ce2feb949a9198715930bd699bea29542a33ac24c2ba1cd67cbd",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32951578,
+        "source_path": "surfaces/kaggle/images/sample_00200.tif",
+        "xet_hash": "fd3a82ee62b4c69b22fcb0660fa24f81f104b513cd70d1ee9760c030ae71e76e"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00200.label.tif",
+        "sha256": "1a53a6bb5c09d492979f4fdefcb941c4aa7a1b6deb78234ebace74d720fa1740",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00200.tif",
+        "xet_hash": "922768917251dcc1320683355e9ddcec6bb64210d8158f932738229ffbc5b690"
+      },
+      "sample": "sample_00200"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00221.image.tif",
+        "sha256": "6d578985ba8ab7a6068e29d00c317907d5582c6611b68a67e05c01609a898358",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 34914344,
+        "source_path": "surfaces/kaggle/images/sample_00221.tif",
+        "xet_hash": "55d0eac46beed31ed5d3317a956f5298fd396d0072a0e22f22e2410a01b18550"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00221.label.tif",
+        "sha256": "0217357f2c304a09b22a601df065396b9e9c128c8d8508ca85ea2cd755056220",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00221.tif",
+        "xet_hash": "eef85f1916de46701e14da637fea751bac45fdef43d535b9376d8d111dbdaeff"
+      },
+      "sample": "sample_00221"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00319.image.tif",
+        "sha256": "37ec6980cb3355b473c885c67808ff4aac1d9f0e61a3648c634608e6935e186f",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 37153861,
+        "source_path": "surfaces/kaggle/images/sample_00319.tif",
+        "xet_hash": "8ee24ec4db23d2382fc510b7f903d748fb0f69e480b6d84345e5bebd76838130"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00319.label.tif",
+        "sha256": "89f9660573ba7c09d9709769f447eaaffb1fdf09cbd545acb5329275cc9c4a28",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00319.tif",
+        "xet_hash": "c988c3a58e4bd2da5fdfc1c67b918278db11f38c876ae832ae5434b2c3458352"
+      },
+      "sample": "sample_00319"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00327.image.tif",
+        "sha256": "a1d0a953efb2f29da92b46a755eaa4c884a9e55685f98f20b8f4d6c9ccc1107c",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 35111383,
+        "source_path": "surfaces/kaggle/images/sample_00327.tif",
+        "xet_hash": "072de8f5119b71ddfeee3ce8d720029bfb17f78a6b4060158beb2be23c888ed1"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00327.label.tif",
+        "sha256": "956c96a396a5ba6c3f0ec5b73a63fb9b63f3fe4018e88a996c59127d2917cbcc",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00327.tif",
+        "xet_hash": "b62fe5d212fd4f000d710179e61d5a2ba3efad54ccce2e1d82cb610e5ca072d3"
+      },
+      "sample": "sample_00327"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00348.image.tif",
+        "sha256": "763859c8fdc585c24d6d29e430ee0944a373fad21c302390ef45e1d6804987eb",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 30591373,
+        "source_path": "surfaces/kaggle/images/sample_00348.tif",
+        "xet_hash": "46f5b0e9709ce88da739ad8198b81653827d4d21917788e8c48e23982cd59e5a"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00348.label.tif",
+        "sha256": "9ce3b47873212c9950460bd7c47156d0a19fcc411f03774da64c6d71edbf16ee",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 832745,
+        "source_path": "surfaces/kaggle/labels/sample_00348.tif",
+        "xet_hash": "d4c55e5093197e9f4cc25923d09fe75731e82108f79e969c00617c4b6b31385f"
+      },
+      "sample": "sample_00348"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00357.image.tif",
+        "sha256": "4d5ea8531a2315ff827173f0b36f3c12d9fcf05f817a6ab682f820938271d532",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 31009256,
+        "source_path": "surfaces/kaggle/images/sample_00357.tif",
+        "xet_hash": "6217a70ae578015e50dffdd28818439b5329ad85148ae8762f2798f4e964a8a7"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00357.label.tif",
+        "sha256": "359c4788a766dc185f27883bffa0f51a9ee0e5a9f94455e71d5b90f2a62494ff",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00357.tif",
+        "xet_hash": "1a09e3b54aec1b44604be19ae130f86a30435d64810548ea20fd87c2591faaaa"
+      },
+      "sample": "sample_00357"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00383.image.tif",
+        "sha256": "73bb8d0449e4c9b9b9ed6dcce0789cfb02f5d9c6f9b82bc7acfd27ef25fec323",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 29111463,
+        "source_path": "surfaces/kaggle/images/sample_00383.tif",
+        "xet_hash": "8f2fcaca3963fc61d47d8391fa930b6117fd33568a05b1ffb8401ad4fd074a0b"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00383.label.tif",
+        "sha256": "b9fc78853f3c98b815e3b24b951c74170880fe27ad90337066f59d956959c0a8",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00383.tif",
+        "xet_hash": "71f838f632cc9a51ba015cf1481746de91fae4531ea9e297692a6da49b23c250"
+      },
+      "sample": "sample_00383"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00402.image.tif",
+        "sha256": "7eb0871d061448180b79b9544dfbf8f9ce611fde93a91d5dc13392183d644bee",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 26332836,
+        "source_path": "surfaces/kaggle/images/sample_00402.tif",
+        "xet_hash": "0e3270d2657796e939a818a5225cf00ab9e2a6de5639daf7e57116289ae466e6"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00402.label.tif",
+        "sha256": "57c0777a2db2709a6f5b2c63b6b5de18425e106488c8b4d0accaaf2d029605b6",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00402.tif",
+        "xet_hash": "629fe9bb8b56c0ad962b30d6bd0fcd5e8c3d4ed8a59784297ee0d3d73708c4d1"
+      },
+      "sample": "sample_00402"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00425.image.tif",
+        "sha256": "35ca74dc7802de4e696f2538948755dfe7eca395ea6285c01e685557889c9be2",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 35407402,
+        "source_path": "surfaces/kaggle/images/sample_00425.tif",
+        "xet_hash": "ddb71c6a7704249c25398c8fe431b44937dc519c260853aeeaff10b1a59d0874"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00425.label.tif",
+        "sha256": "ad3d93dafdba94fd667e05db696b862d74c83fb1f7ef10451b5f284c8d3ea78d",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00425.tif",
+        "xet_hash": "1a58a4049f09490babea553994d205bec351ae01f78bec9fff4c3f4079751b0d"
+      },
+      "sample": "sample_00425"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00462.image.tif",
+        "sha256": "17fa277419d4c880b3dbd46ccb3e1999a16fde4637b7be35513db36faadbaace",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 37333052,
+        "source_path": "surfaces/kaggle/images/sample_00462.tif",
+        "xet_hash": "f29e9fc69bf1e1349865b9141b3785bb5436eb48b38877cc19defbd2c0fe21fe"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00462.label.tif",
+        "sha256": "c1dcfa16b19799c3d8cd34ac08b6f575a04488c6e24509aced36cb884031e9eb",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00462.tif",
+        "xet_hash": "2779c21dba9a8a53e5a02f9918286b6b014303492145af0d8ad6bf0909ccd8f9"
+      },
+      "sample": "sample_00462"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00503.image.tif",
+        "sha256": "05596c86c5d5232765cfe7234af4594252e3a113962960eac7f76f9ff8727cc7",
+        "shape": [
+          256,
+          256,
+          256
+        ],
+        "size": 18223297,
+        "source_path": "surfaces/kaggle/images/sample_00503.tif",
+        "xet_hash": "b07713a489486b7fd28e97ea1f269e5a43cbc767181ae9d23734d3dd7bbba4b5"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00503.label.tif",
+        "sha256": "1610edae8835af0aa34fb5d524e405931b61012e9c84d1e7d1774985b49a7e63",
+        "shape": [
+          256,
+          256,
+          256
+        ],
+        "size": 16819802,
+        "source_path": "surfaces/kaggle/labels/sample_00503.tif",
+        "xet_hash": "b832e30396739cdc2c4180b1966ffc936c1f74d867dcc892bcef4fe8b3d16178"
+      },
+      "sample": "sample_00503"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00520.image.tif",
+        "sha256": "0aae8852423aa16a6d452a109107b08b0bdef064c30524e064e1e95881388392",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 37993779,
+        "source_path": "surfaces/kaggle/images/sample_00520.tif",
+        "xet_hash": "43ce0f6c8a1a576c0f9b9123b3da7641f0f0ad60f924bd8ced07a0c428979c8b"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00520.label.tif",
+        "sha256": "c7d630f8cbd45be2632eff2bf2f7bbade5b067478a54edad48b9211d2dce341a",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00520.tif",
+        "xet_hash": "6bb77fc6f984fc2b5e643b443a4be03e7000f460145bc7ba67f4dfcf699aceed"
+      },
+      "sample": "sample_00520"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00548.image.tif",
+        "sha256": "6151ea876867a6c64dee7a27df6dc16c401e578fa2930d9462f3bf37adc81281",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 37528502,
+        "source_path": "surfaces/kaggle/images/sample_00548.tif",
+        "xet_hash": "455eaeacf40f6121262c1cca09e85a9b14f6ea76a2db01e2626e8e6b81100371"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00548.label.tif",
+        "sha256": "b26631c863974f0ef5b348c04735b6e10da082c4f7554fd12fc673f275251064",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00548.tif",
+        "xet_hash": "7f6d3f6334e558ff5aa43e46e99a22bb1846075addca4ff35bd3535ce5349160"
+      },
+      "sample": "sample_00548"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00604.image.tif",
+        "sha256": "7439e365cc1931fb3e6b65d5260da62235702292b1ed08729594bd17555366ae",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 35761779,
+        "source_path": "surfaces/kaggle/images/sample_00604.tif",
+        "xet_hash": "ed290d26667d088a0fd9159b8f25b101f0675be98033ada13f65c5a6b5eab441"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00604.label.tif",
+        "sha256": "3ed291c8d835eb2b04c26c2a165e197eb7645c733c4783ba2c93162bdd81248a",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00604.tif",
+        "xet_hash": "922b14f4e63b745aff8c45111badaf82a8c99b57b0f7d4870c9af13f387e3d28"
+      },
+      "sample": "sample_00604"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00618.image.tif",
+        "sha256": "038153afd6122be59d8172909504d5eef41d2501b34f84d85df1ac187e9e3f12",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 36447465,
+        "source_path": "surfaces/kaggle/images/sample_00618.tif",
+        "xet_hash": "36a408fe829f8f7d3cbadbf3fc0524fe1617f614d31b098cb8e07eba9582b513"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00618.label.tif",
+        "sha256": "15559b7ae6723af70b592ae817012a709c2476e71a48e307d6c3d67c9c6078b4",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00618.tif",
+        "xet_hash": "c0ba267e04dca5f08b333ee29d69c74ce40582099a750b036b33c714a02f1e9b"
+      },
+      "sample": "sample_00618"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00666.image.tif",
+        "sha256": "f82e7b51b3a837e3780d214cf2a113c48aed0adf52f1cdd56e4fbdbb194fa7db",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 37310431,
+        "source_path": "surfaces/kaggle/images/sample_00666.tif",
+        "xet_hash": "0827b8ef6bb6fdb5a0bfd18943f90f06ed5db59fec60fe99962e5e46650af438"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00666.label.tif",
+        "sha256": "3511b12d01c23ca75557b8769a40bdaf0b341d563062956595959ee550d5b4c0",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00666.tif",
+        "xet_hash": "8fb087281d1d2fea1ef75f759c00b957dc4f5e4cb8db7a13ef8cc6ca735b1c5e"
+      },
+      "sample": "sample_00666"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00726.image.tif",
+        "sha256": "36fa93f86f97e676961cbbce895c98b37718b29891dfc6b24572295654e1337b",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 36571945,
+        "source_path": "surfaces/kaggle/images/sample_00726.tif",
+        "xet_hash": "cce251af7750622951c98a3a93afe69cbd962aa19c931895b7b1cfc0c72d2906"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00726.label.tif",
+        "sha256": "5ddd027d95490a5c8b7149519f1f993d9da73e5c45af084e74718f792d43720e",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00726.tif",
+        "xet_hash": "c6ad4c56ac0c45bcd5b9608b48d962343080b1fda8c8da9b2912e689f872db0c"
+      },
+      "sample": "sample_00726"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00798.image.tif",
+        "sha256": "ce3991e0382be5f18bd204b0e167f450a9219a0d232b88960ec465b00b252b83",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 34682056,
+        "source_path": "surfaces/kaggle/images/sample_00798.tif",
+        "xet_hash": "396d4fb477bbbfd7efd805ae1ff960346d5c311ec00a1cdc2ad1802f59e8588c"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00798.label.tif",
+        "sha256": "14813b19599def6c9ce0d29279afd59bd96668ae92a3c197e0bbf2d52f452b1e",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 32821210,
+        "source_path": "surfaces/kaggle/labels/sample_00798.tif",
+        "xet_hash": "c9e38ca62aad6eb6fe381ce0d67e21106e44089797356fca2236daeb720f8f14"
+      },
+      "sample": "sample_00798"
+    },
+    {
+      "image": {
+        "path": "data/holdout-raw/sample_00895.image.tif",
+        "sha256": "db4c9c426fe56a545dec41b65b25b45748ff8d62c9fb878e35678e50a37abd65",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 35960771,
+        "source_path": "surfaces/kaggle/images/sample_00895.tif",
+        "xet_hash": "4189d19749dff6bf7784bfeaf15273a14ca1588420480455850cb6ec032e22b6"
+      },
+      "label": {
+        "path": "data/holdout-raw/sample_00895.label.tif",
+        "sha256": "1bb85685e28a1dc11106764815e3bf12e0f1ddaddeb3fe824836fae2a0a1f250",
+        "shape": [
+          320,
+          320,
+          320
+        ],
+        "size": 1316265,
+        "source_path": "surfaces/kaggle/labels/sample_00895.tif",
+        "xet_hash": "a62794a66683169116bfd4e98510da0662312e696e8461a956e88e802c9ffde7"
+      },
+      "sample": "sample_00895"
+    }
+  ],
+  "schema": "layerlens-holdout-acquisition-v1",
+  "selection_sha256": "951939a1073a4828922d525b880d305449240032529646072c26e22fff955376",
+  "state": "ready",
+  "total_bytes": 1412450473
+}

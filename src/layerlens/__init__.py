@@ -1,6 +1,6 @@
 """LayerLens public API."""
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 from .io import OpenedVolume, open_volume
 from .pipeline import analyze_to_ome_zarr, estimate_normalization

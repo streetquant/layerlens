@@ -57,6 +57,13 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--gradient-sigma", type=_positive_float, default=0.6)
     parser.add_argument("--tensor-sigma", type=_positive_float, default=2.5)
     parser.add_argument(
+        "--scan-axis",
+        type=int,
+        default=0,
+        help="array-axis index along which persistent structure is measured",
+    )
+    parser.add_argument("--persistence-sigma", type=_positive_float, default=8.0)
+    parser.add_argument(
         "--voxel-size",
         type=_float_tuple,
         help="spatial voxel sizes in array-axis order, for example 7.91,7.91,7.91",
@@ -94,6 +101,8 @@ def run(arguments: Sequence[str] | None = None) -> dict[str, object]:
         tile_shape=args.tile_shape,
         gradient_sigma=args.gradient_sigma,
         tensor_sigma=args.tensor_sigma,
+        scan_axis=args.scan_axis,
+        persistence_sigma=args.persistence_sigma,
         max_normalization_samples=args.normalization_samples,
         summary_path=args.summary,
         overwrite=args.overwrite,

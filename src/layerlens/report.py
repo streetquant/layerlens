@@ -47,6 +47,17 @@ def _quality_colors(values: np.ndarray) -> np.ndarray:
     return np.asarray(np.rint(np.stack(channels, axis=-1)), dtype=np.uint8)
 
 
+def _persistence_colors(values: np.ndarray) -> np.ndarray:
+    positions = np.asarray((0.0, 0.35, 0.7, 1.0), dtype=np.float32)
+    controls = np.asarray(
+        ((12, 19, 43), (49, 84, 150), (231, 111, 81), (255, 226, 120)),
+        dtype=np.float32,
+    )
+    clipped = np.clip(values, 0.0, 1.0)
+    channels = [np.interp(clipped, positions, controls[:, index]) for index in range(3)]
+    return np.asarray(np.rint(np.stack(channels, axis=-1)), dtype=np.uint8)
+
+
 def _resize(values: np.ndarray, shape: tuple[int, int]) -> np.ndarray:
     factors = tuple(target / current for target, current in zip(shape, values.shape, strict=True))
     resized = ndi.zoom(values, factors, order=1, mode="nearest", prefilter=False)
@@ -157,6 +168,7 @@ def render_report(
         raise ValueError("analysis array does not contain all LayerLens channels")
     quality = np.asarray(maps[0], dtype=np.float32)
     confidence = np.asarray(maps[4], dtype=np.float32)
+    persistence = np.asarray(maps[5], dtype=np.float32) if maps.shape[0] >= 6 else None
     summary = _analysis_summary(root, analysis_path)
     if tuple(summary["input"]["shape"]) != volume.shape:
         raise ValueError("source shape does not match the analysis provenance")
@@ -202,6 +214,9 @@ def render_report(
     source = _source_plane(volume, selected_axis, input_index)
     quality_plane = _map_plane(quality, selected_axis, map_index)
     confidence_plane = _map_plane(confidence, selected_axis, map_index)
+    persistence_plane = (
+        _map_plane(persistence, selected_axis, map_index) if persistence is not None else None
+    )
     normalization = summary["parameters"]["normalization"]
     grayscale = _normalize_plane(source, normalization["lower"], normalization["upper"])
     target_shape = tuple(int(item) for item in grayscale.shape)
@@ -213,14 +228,33 @@ def render_report(
     overlay = np.asarray(
         np.rint(gray_rgb * (1.0 - alpha) + colors * alpha), dtype=np.uint8
     )
+    persistence_image = (
+        _persistence_colors(_resize(persistence_plane, target_shape))
+        if persistence_plane is not None
+        else None
+    )
+    persistence_figure = (
+        ""
+        if persistence_image is None
+        else (
+            f'<figure><img src="{_image_data_url(persistence_image)}" '
+            'alt="Scan-axis persistence heatmap"><figcaption><strong>Scan-axis '
+            'persistence</strong>Persistent transverse structure; not an artifact '
+            'probability</figcaption></figure>'
+        )
+    )
 
     metrics = summary["metrics"]
-    cards = (
+    cards = [
         ("LayerLens score", f"{metrics['score']:.3f}"),
         ("Poor fraction", f"{100 * metrics['poor_fraction']:.1f}%"),
         ("Median quality", f"{metrics['quality_p50']:.3f}"),
-        ("Analysis runtime", f"{summary['runtime']['seconds']:.1f}s"),
-    )
+    ]
+    if "scan_axis_persistence_score" in metrics:
+        cards.append(
+            ("Scan-axis persistence", f"{metrics['scan_axis_persistence_score']:.3f}")
+        )
+    cards.append(("Analysis runtime", f"{summary['runtime']['seconds']:.1f}s"))
     card_html = "".join(
         f'<div class="card"><span>{html.escape(label)}</span><strong>{value}</strong></div>'
         for label, value in cards
@@ -252,10 +286,10 @@ main {{ max-width:1500px; margin:auto; padding:42px 28px 64px }}
 header {{ display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:25px }}
 h1 {{ font-size:34px; margin:0; letter-spacing:-.04em }} h2 {{ font-size:19px; margin:0 0 14px }}
 .eyebrow {{ color:var(--accent); text-transform:uppercase; font-size:12px; font-weight:750; letter-spacing:.13em }}
-.muted {{ color:var(--muted) }} .cards {{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:18px 0 24px }}
+.muted {{ color:var(--muted) }} .cards {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:18px 0 24px }}
 .card,.block {{ background:rgba(21,27,41,.9); border:1px solid var(--line); border-radius:13px; box-shadow:0 15px 35px #0004 }}
 .card {{ padding:15px 18px }} .card span {{ display:block; color:var(--muted); font-size:12px }} .card strong {{ font-size:25px }}
-.panels {{ display:grid; grid-template-columns:repeat(3,1fr); gap:13px }} figure {{ margin:0; overflow:hidden; background:var(--panel); border:1px solid var(--line); border-radius:13px }}
+.panels {{ display:grid; grid-template-columns:repeat(2,1fr); gap:13px }} figure {{ margin:0; overflow:hidden; background:var(--panel); border:1px solid var(--line); border-radius:13px }}
 figure img {{ display:block; width:100%; aspect-ratio:1/1; object-fit:contain; background:#05070c; image-rendering:auto }}
 figcaption {{ padding:11px 14px; color:var(--muted) }} figcaption strong {{ color:var(--text); display:block }}
 .lower {{ display:grid; grid-template-columns:1.25fr .75fr; gap:13px; margin-top:13px }} .block {{ padding:18px }}
@@ -273,9 +307,10 @@ details pre {{ overflow:auto; color:#c7d1df; font-size:12px; white-space:pre-wra
 <figure><img src="{_image_data_url(gray_rgb)}" alt="Normalized source CT plane"><figcaption><strong>Source CT</strong>Global p1/p99 normalization</figcaption></figure>
 <figure><img src="{_image_data_url(colors)}" alt="LayerLens quality heatmap"><figcaption><strong>Quality map</strong>Low red · high cyan<div class="gradient"></div></figcaption></figure>
 <figure><img src="{_image_data_url(overlay)}" alt="Quality map overlaid on source CT"><figcaption><strong>Evidence-weighted overlay</strong>Opacity follows confidence</figcaption></figure>
+{persistence_figure}
 </section>
 <section class="lower"><div class="block"><h2>Quality distribution</h2>{_histogram_svg(quality)}</div>
-<div class="block"><h2>Interpretation</h2><p>Low values identify locally weak, blurred, or directionally disorganized interfaces. Inspect coherence, sharpness, scale-sharpness, and confidence channels in the OME-Zarr store before treating a region as unusable.</p>
+<div class="block"><h2>Interpretation</h2><p>Low quality values identify locally weak, blurred, or directionally disorganized interfaces. Elevated scan-axis persistence identifies transverse structure that remains similar along the selected acquisition axis. Inspect the component channels before treating either signal as unusable data or an artifact.</p>
 <p class="muted">Scores compare image evidence; they do not identify ink, recto/verso, or historical truth.</p></div></section>
 <details class="block" style="margin-top:13px"><summary>Provenance and parameters</summary><pre>{html.escape(provenance)}</pre></details>
 </main></body></html>"""

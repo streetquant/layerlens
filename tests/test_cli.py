@@ -31,6 +31,10 @@ def test_cli_writes_calibrated_analysis_and_custom_summary(tmp_path: Path, capsy
             "2.4,2.4,2.4",
             "--unit",
             "micrometer",
+            "--scan-axis",
+            "2",
+            "--persistence-sigma",
+            "6.5",
             "--summary",
             str(summary_path),
         ]
@@ -42,6 +46,9 @@ def test_cli_writes_calibrated_analysis_and_custom_summary(tmp_path: Path, capsy
     assert result["input"]["voxel_size"] == [2.4, 2.4, 2.4]
     assert result["input"]["units"] == ["micrometer"] * 3
     assert result["parameters"]["stride"] == [2, 2, 2]
+    assert result["parameters"]["scan_axis"] == 2
+    assert result["parameters"]["scan_axis_name"] == "x"
+    assert result["parameters"]["persistence_sigma"] == 6.5
     root = zarr.open_group(output, mode="r")
     transforms = root.attrs["ome"]["multiscales"][0]["datasets"][0][
         "coordinateTransformations"
@@ -56,6 +63,7 @@ def test_cli_writes_calibrated_analysis_and_custom_summary(tmp_path: Path, capsy
         ["--voxel-size", "2.4,nan,2.4"],
         ["--gradient-sigma", "nan"],
         ["--tensor-sigma", "inf"],
+        ["--persistence-sigma", "nan"],
     ],
 )
 def test_cli_rejects_invalid_numeric_options(arguments: list[str], tmp_path: Path) -> None:

@@ -25,8 +25,8 @@ to locally blurred interfaces on the right. No challenge data is redistributed._
 - automatic OME-Zarr level discovery and physical-coordinate preservation
 - lazy TIFF/Zarr reads and bounded-memory tiled execution with mathematically
   sufficient Gaussian halos
-- five inspectable diagnostic channels: quality, coherence, sharpness,
-  scale-normalized sharpness, and confidence
+- six inspectable diagnostic channels: quality, coherence, sharpness,
+  scale-normalized sharpness, confidence, and scan-axis persistence
 - OME-Zarr 0.5 / Zarr v3 output plus a stable JSON summary schema
 - self-contained HTML QC report with source, heatmap, overlay, and provenance
 - compact Zarr v2 `uint8` VC3D overlay and optional portable review project
@@ -45,7 +45,8 @@ uv sync --extra dev
 
 uv run layerlens scan.tif outputs/scan.layerlens.zarr \
   --tile-shape 160 \
-  --stride 4
+  --stride 4 \
+  --scan-axis 0
 
 uv run layerlens-report scan.tif \
   outputs/scan.layerlens.zarr \
@@ -99,7 +100,10 @@ For `outputs/scan.layerlens.zarr`, LayerLens writes:
 All channels are in `[0, 1]`. Higher `quality` means locally sharper and more
 directionally organized papyrus interfaces. The scalar `score` is an
 evidence-weighted summary for ranking regions from the same acquisition
-context; it is not a universal pass/fail threshold.
+context; it is not a universal pass/fail threshold. Higher
+`scan_axis_persistence` means transverse gradients remain similar along the
+selected acquisition axis. It is a separately aggregated structural warning,
+not an artifact probability and not a penalty inside `score`.
 
 See [the output contract](docs/output.md) and [the method](docs/method.md) for
 the exact formulas and coordinate mapping.
@@ -127,9 +131,21 @@ blur/noise ordering was `0.9958`. Tenengrad and variance of Laplacian detected
 blur but rewarded added noise, producing combined ranks of `0.0833` and
 `0.0000`. LayerLens ordered all 24 noise sequences correctly.
 
-On the current Threadripper 3960X CPU, lazy TIFF analysis took 9.0–9.2 seconds
-for 256³ cubes and 15.7–21.9 seconds for 320³ cubes. A compressed 320³ output
-is roughly 8 MB.
+Version 0.2.0 adds a separately reported scan-axis-persistence diagnostic for
+structured responses that can look deceptively coherent. Its implementation
+was frozen before a one-shot evaluation on 24 additional official cubes,
+disjoint from development. Controlled ring and streak perturbations increased
+persistence on **24/24 cubes for each family**. The mean deltas were `+0.01859`
+(97.5% multiplicity-adjusted bootstrap CI `0.01293–0.02500`) and `+0.01922`
+(`0.01407–0.02533`). All 168 legacy comparisons were bit-identical, so the
+original quality channels and scalar score are unchanged. This test covers the
+fixed controlled perturbations, not natural-artifact prevalence or universal
+artifact detection.
+
+On the current Threadripper 3960X CPU, the frozen five-channel validation run
+took 9.0–9.2 seconds for 256³ cubes and 15.7–21.9 seconds for 320³ cubes. On a
+96³ fixture, the additive sixth channel measured about 19.6% whole-volume
+overhead relative to the frozen implementation.
 
 Full tables, negative controls, and limitations are in
 [the validation report](docs/validation.md).
@@ -139,6 +155,7 @@ Full tables, negative controls, and limitations are in
 ```bash
 uv run python -m benchmarks.prepare_official_crops
 uv run python -m benchmarks.verify_metric
+uv run python -m benchmarks.verify_persistence_evidence
 uv run pytest -q
 uv run ruff check src tests benchmarks
 ```

@@ -38,8 +38,10 @@ def test_report_is_self_contained_and_refuses_overwrite(tmp_path) -> None:
         "map_index": None,
         "input_index": None,
     }
-    assert document.count("data:image/png;base64,") == 3
+    assert document.count("data:image/png;base64,") == 4
     assert "LayerLens score" in document
+    assert "Scan-axis persistence" in document
+    assert "not an artifact probability" in document
     assert "Reference-free CT quality control" in document
     assert "https://" not in document
     with pytest.raises(FileExistsError):

@@ -20,6 +20,10 @@ The component maps matter: note whether low quality came from coherence,
 sharpness, scale separation, confidence, or a combination. Reports from clean
 and difficult regions in the same acquisition are especially informative.
 
+For `scan_axis_persistence`, include the selected axis and explain why it is
+the acquisition axis. Report both expected persistent structure and suspected
+artifacts when possible: a high value alone is not an artifact label.
+
 ## Development setup
 
 ```bash

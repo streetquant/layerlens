@@ -79,7 +79,41 @@ confidence * sqrt(edge)
 so empty background does not dominate a volume summary. Unweighted quality
 statistics and poor/good fractions are reported separately.
 
-## 5. Seam-safe tiling
+## 5. Scan-axis persistence
+
+Directionally coherent structure is not always trustworthy: ring and streak
+responses can repeat through many adjacent slices and still look like a strong
+interface to a local structure tensor. LayerLens therefore reports a separate
+measure of how much transverse gradient energy persists along a chosen scan
+axis `a`.
+
+For each transverse derivative `d_j I`, where `j != a`, let
+
+```text
+p_j = G_axis(sigma_p) * d_j I
+e_j = G_axis(sigma_p) * (d_j I)^2
+```
+
+where the Gaussian acts only along `a` and the default `sigma_p` is 8 voxels.
+The local diagnostic is
+
+```text
+scan_axis_persistence = sum_j p_j^2 / sum_j e_j
+```
+
+with zero returned when the denominator has no gradient evidence. Jensen's
+inequality gives `0 <= p_j^2 <= e_j`, so the ratio is bounded in `[0, 1]`.
+The volume-level `scan_axis_persistence_score` is the denominator-weighted
+mean, which prevents empty regions from dominating it.
+
+For a conventional ZYX TIFF volume, the default `--scan-axis 0` is Z. Set the
+axis explicitly if the acquisition or array layout differs. A high value means
+transverse gradients remain similar along that axis. It may reflect a ring,
+streak, reconstruction response, or valid repeated anatomy; it is not an
+artifact probability. The original quality formula and scalar score do not
+use this diagnostic.
+
+## 6. Seam-safe tiling
 
 TIFF strips or tiles are exposed through tifffile's read-only Zarr adapter,
 while Zarr inputs remain lazy. Only the current normalization sample or
@@ -87,15 +121,16 @@ halo-extended compute tile is decoded into memory.
 
 SciPy Gaussian filters use finite support. LayerLens adds the support radii of
 the fine derivative, fine-to-coarse smoothing, and tensor integration, then
-rounds the halo up to a stride multiple. With the defaults, the halo is 20
-voxels on every axis.
+rounds the halo up to a stride multiple. The persistence smoothing adds its
+own support only on the selected scan axis. With default stride 4, the halo is
+36 voxels on that axis and 20 voxels on each transverse axis.
 
 Tile origins, halos, and output samples share one global stride phase. Halo
 outputs are discarded before writing. A test reconstructs an irregular 42³
-volume from multiple tiles and compares all six internal maps against the
+volume from multiple tiles and compares all eight internal maps against the
 whole-volume result to `2e-5` relative tolerance.
 
-## 6. Coordinates
+## 7. Coordinates
 
 With stride `s`, the first output sample is taken at input index `s // 2`.
 OME-Zarr output therefore uses physical scale

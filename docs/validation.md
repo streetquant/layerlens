@@ -1,8 +1,9 @@
 # Validation
 
-LayerLens uses three independent forms of evidence: known synthetic signal,
-controlled degradation of official CT, and enrichment on official surface
-labels that were never used to fit the metric. The exact machine-readable
+LayerLens uses four complementary forms of evidence: known synthetic signal,
+controlled blur/noise degradation of official CT, enrichment on official
+surface labels that were never used to fit the metric, and a preregistered
+ring/streak stress test on disjoint official crops. The exact machine-readable
 reports and source-object hashes are committed under [`docs/evidence`](evidence/).
 
 ## Frozen benchmark
@@ -79,6 +80,68 @@ slightly less perfect on blur while preserving the correct direction for all
 24 noise sequences. The [baseline comparison report](evidence/baseline_comparison_report.json)
 contains every score and bootstrap interval.
 
+## Preregistered scan-axis-persistence holdout
+
+The original quality score is useful for layer separability, but a coherent
+ring or streak can also create strong organized gradients. Version 0.2.0 adds
+`scan_axis_persistence` as a separate diagnostic rather than silently
+penalizing `score`. For any rule of the form
+`adjusted = score - lambda * persistence`, a case with zero measured
+persistence leaves the score unchanged for every finite `lambda`; without an
+assumption about detector recall, such a penalty cannot guarantee conservative
+behavior on every artifact. The two summaries therefore remain independent.
+
+The candidate was frozen at commit
+`415131c2fdcf2dbd2e9e45efefbfa5ed003ef147`. Before any holdout voxel or label
+was downloaded or decoded, the protocol fixed:
+
+- 24 metadata-selected official cubes disjoint from 30 development cubes;
+- recto-rich 64³ crops selected at step 32 with a fixed lexicographic tie
+  break;
+- controlled broadcast ring and streak families at severity `0.20`;
+- seeds `104729`, `130363`, and `169087`, averaged within each source cube;
+- scan axis 0, stride 4, gradient sigma `0.6`, tensor sigma `2.5`, and
+  persistence sigma `8.0`;
+- 10,000 cube-bootstrap draws with a fixed seed and two-sided 97.5% intervals,
+  providing a Bonferroni familywise alpha of 0.05 across the two families;
+- a pass only if each family was positive on at least 75% of cubes, each lower
+  endpoint was above zero, and every legacy output was bit-identical.
+
+The one allowed execution passed without tuning, sample replacement, family
+changes, or rerun:
+
+| Controlled family | Mean persistence delta | Median delta | Positive cubes | 97.5% bootstrap interval |
+|---|---:|---:|---:|---:|
+| Ring | **+0.018588** | +0.017402 | **24/24** | **+0.012931–+0.024995** |
+| Streak | **+0.019220** | +0.016917 | **24/24** | **+0.014073–+0.025328** |
+
+All original maps, the internal aggregation weight, and the scalar score were
+bit-identical to the frozen 0.1.0 path in 168 clean/corrupted comparisons. The
+new channel is therefore additive and the original validation numbers above
+remain applicable to `score`.
+
+Independent verification then used three deliberately different numerical
+paths. A Python-standard-library bootstrap retained positive lower endpoints
+for both families; 50-digit aggregation agreed within `7.1e-19`; and both a
+pure-NumPy finite-difference/box metric and a SciPy
+Gaussian-derivative/box metric were positive on 24/24 cubes for both families
+with positive multiplicity-adjusted t lower bounds. The narrow result was also
+replayed under fresh `python -I -S` isolation with network, subprocess, and
+outside-file access denied.
+
+The [preregistration](evidence/persistence_holdout_preregistration.md),
+[selection](evidence/persistence_holdout_selection.json),
+[acquisition manifest](evidence/persistence_holdout_acquisition_manifest.json),
+[crop manifest](evidence/persistence_holdout_crop_manifest.json),
+[raw records](evidence/persistence_holdout_records.jsonl),
+[primary report](evidence/persistence_holdout_report.json),
+[independent verification](evidence/persistence_holdout_independent_verification.json),
+and [claim certificate](evidence/persistence_holdout_claim_certificate.json)
+are committed. This establishes sensitivity to the frozen controlled
+broadcast ring/streak morphology on these official crops. It does not estimate
+natural-artifact prevalence, establish seam or scanner coverage, calibrate an
+artifact probability, or prove a universal quality correction.
+
 ## Full-cube external localization check
 
 The same 24 complete labeled cubes were processed with the frozen default
@@ -123,7 +186,7 @@ table and [full-cube report](evidence/surface_validation_report.json).
 
 ## Tiling and format controls
 
-- All component maps and exact aggregation weights from a tiled irregular 42³
+- All six channels and both exact aggregation weights from a tiled irregular 42³
   phantom match whole-volume computation within `2e-5` relative tolerance.
 - Rotation and affine-intensity transforms preserve the scalar score.
 - Constant input produces exactly zero quality.
@@ -135,11 +198,13 @@ table and [full-cube report](evidence/surface_validation_report.json).
 
 ## Runtime
 
-On a 24-core Threadripper 3960X, the lazy TIFF path processed the two 256³
-cubes in 9.0–9.2 seconds and the 320³ cubes in 15.7–21.9 seconds (median over
-all 24: 16.2 seconds). A 320³ analysis contains five 80³ `float32` channels and
-compresses to roughly 8 MB. Runtime is recorded for transparency, not used as
-a scientific endpoint.
+On a 24-core Threadripper 3960X, the frozen five-channel lazy TIFF run processed
+the two 256³ cubes in 9.0–9.2 seconds and the 320³ cubes in 15.7–21.9 seconds
+(median over all 24: 16.2 seconds). A separate three-repeat 96³ whole-volume
+benchmark measured a 0.6178-second median for the additive six-channel
+candidate versus 0.5166 seconds for the frozen path, about 19.6% overhead on
+that fixture. Runtime is recorded for transparency, not used as a scientific
+endpoint.
 
 ## Reproduce
 
@@ -155,6 +220,8 @@ uv run python -m benchmarks.validate_degradations \
 
 uv run python -m benchmarks.compare_baselines \
   --manifest data/cache/surface_validation_manifest.json --workers 4
+
+uv run python -m benchmarks.verify_persistence_evidence
 ```
 
 ## Known limitations
@@ -164,6 +231,11 @@ uv run python -m benchmarks.compare_baselines \
   scanner, voxel size, and reconstruction pipeline.
 - A clean but weakly textured interface can score low.
 - A strong organized edge that is not papyrus can score high.
+- High scan-axis persistence can come from controlled ring/streak morphology
+  or from valid repeated structure; it is not a classifier by itself.
+- The persistence holdout uses generated broadcast perturbations on real CT
+  crops. Natural expert-labeled artifacts and scanner/domain shifts remain to
+  be evaluated.
 - Local quality does not establish recto/verso identity, surface continuity,
   traceability, or ink presence.
 - Current parameters are expressed in voxels. Physical-scale-normalized

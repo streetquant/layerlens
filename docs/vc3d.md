@@ -40,6 +40,11 @@ uv run layerlens-vc3d analysis.zarr overlay.ome.zarr \
   --channel coherence --no-invert
 ```
 
+The additive persistence diagnostic can be exported directly with
+`--channel scan_axis_persistence --no-invert`. Treat it as a structural review
+layer, not an artifact mask or probability; the default inverted-quality
+overlay remains the safer general triage view.
+
 Accepted channels are recorded in the analysis metadata. The exporter refuses
 an existing destination unless `--overwrite` is explicit.
 
@@ -131,11 +136,11 @@ repository at commit `1fe401acfb25` (2026-07-18 checkout), including:
 
 The official `VC3D-1fe401a-2026-07-17-linux-x86_64.AppImage` built from that
 same commit was also exercised headlessly, without a display server, through
-its bundled native `vc_zarr_to_tiff` CLI reader. It opened the generated demo
-base at level 0 as `96x96x96 uint16` and the populated overlay at level 1 as
-`48x48x48 uint8`, then decoded every slice successfully. A file-syscall trace
-found zero attempted persistent writes outside the repository-local test
-paths. The
+its bundled native `vc_zarr_to_tiff` CLI reader. The demo was regenerated from
+the LayerLens 0.2.0 candidate first. VC3D opened its base at level 0 as
+`96x96x96 uint16` and the populated overlay at level 1 as `48x48x48 uint8`,
+then decoded every slice successfully. A file-syscall trace found zero
+attempted persistent writes outside the repository-local test paths. The
 tested AppImage SHA-256 was
 `381fa57c6fd8b9f3183019fc828ea076f8480ce812ab859bcf7d38d58d1e3e3c`.
 This checks the actual C++ Zarr metadata, compressor, chunk, and dtype path;

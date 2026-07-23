@@ -1,0 +1,802 @@
+{
+  "crop_size": 64,
+  "samples": [
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00047.npy",
+      "crop_sha256": "d421608203223edf26854837ad1a67a6d5bfe734b1a0afe4be747a51db536004",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "756a7440c5016e46235181c0ae21dfe1082df26c2a749266b4603d98e10dffd5",
+      "label_sha256": "bc7938920c50026af21020089bd52202059c06243e2e6a1fade5cfa937d74a32",
+      "recto_voxels": 46039,
+      "sample": "sample_00047",
+      "selection": [
+        [
+          0,
+          64
+        ],
+        [
+          192,
+          256
+        ],
+        [
+          256,
+          320
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00157.npy",
+      "crop_sha256": "8d4903914a1dad9c9c9a96d70a97335bc98db1383c0e7e6308f6b316d4e9ef84",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "bcb0980b269116caa7ec789abe72b0e11eb71468df772cc6527583f2f9762351",
+      "label_sha256": "7956fdd6ac558f6c916aa2466803ba1aac42676b6bf088e02354bd1d42200b36",
+      "recto_voxels": 49337,
+      "sample": "sample_00157",
+      "selection": [
+        [
+          96,
+          160
+        ],
+        [
+          224,
+          288
+        ],
+        [
+          224,
+          288
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00162.npy",
+      "crop_sha256": "e1015122c6d9aec9b3ecf9fdce492783b8d811b2f031a3aab9e868c4d0df4af5",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "48c52e53b03be276a470f254654fbc2b5f3c7b2ded5e7de51fb5c5c3b36186fc",
+      "label_sha256": "d969ba5b56e75a21e072e1dcfe9ce4334bbb4afe44d139e0c3386cfc44bd8163",
+      "recto_voxels": 36965,
+      "sample": "sample_00162",
+      "selection": [
+        [
+          96,
+          160
+        ],
+        [
+          128,
+          192
+        ],
+        [
+          160,
+          224
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00165.npy",
+      "crop_sha256": "1a1246531b33801764d21f2dbc438b8ecd4a53e19a344c5c20a546e08079aed6",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "fcd6c70655815ba32a37c114f9c882196a79155c179614efa8f38766a726680d",
+      "label_sha256": "67fdd2c858d0be2087fd5ccec186f4ef2ea506048279fa0cad10a28ab3ce187e",
+      "recto_voxels": 64537,
+      "sample": "sample_00165",
+      "selection": [
+        [
+          96,
+          160
+        ],
+        [
+          256,
+          320
+        ],
+        [
+          192,
+          256
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00187.npy",
+      "crop_sha256": "f028bbb7a97935ca1f52b537cb8624e2a03181bea59c30cde0b72883c9e9824b",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "17cad797ff9bf50b4bacc6d00c9864e945b4239c0227f1a71401a904c6cd2905",
+      "label_sha256": "b8c52e4d2b42e07c54076b6b02a255f24535d30c1eb286768ddcb9dd5f1a5780",
+      "recto_voxels": 63157,
+      "sample": "sample_00187",
+      "selection": [
+        [
+          64,
+          128
+        ],
+        [
+          64,
+          128
+        ],
+        [
+          96,
+          160
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00200.npy",
+      "crop_sha256": "882974e538e15d18ed2c8de81dd44d65d02e54a3ae7aacab001fb9303131cb65",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "b3da556c39f9ce2feb949a9198715930bd699bea29542a33ac24c2ba1cd67cbd",
+      "label_sha256": "1a53a6bb5c09d492979f4fdefcb941c4aa7a1b6deb78234ebace74d720fa1740",
+      "recto_voxels": 65999,
+      "sample": "sample_00200",
+      "selection": [
+        [
+          64,
+          128
+        ],
+        [
+          160,
+          224
+        ],
+        [
+          32,
+          96
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00221.npy",
+      "crop_sha256": "3050a8432e0a91800381a8d3e322a6fd610fa824bb55f655c64dbe2d3bc1e3a1",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "6d578985ba8ab7a6068e29d00c317907d5582c6611b68a67e05c01609a898358",
+      "label_sha256": "0217357f2c304a09b22a601df065396b9e9c128c8d8508ca85ea2cd755056220",
+      "recto_voxels": 51515,
+      "sample": "sample_00221",
+      "selection": [
+        [
+          256,
+          320
+        ],
+        [
+          192,
+          256
+        ],
+        [
+          0,
+          64
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00319.npy",
+      "crop_sha256": "e1a9f2f21ac7ed34faeb92d32fc071720c0eed22b7b0fd6465eba417a574a55a",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "37ec6980cb3355b473c885c67808ff4aac1d9f0e61a3648c634608e6935e186f",
+      "label_sha256": "89f9660573ba7c09d9709769f447eaaffb1fdf09cbd545acb5329275cc9c4a28",
+      "recto_voxels": 59756,
+      "sample": "sample_00319",
+      "selection": [
+        [
+          224,
+          288
+        ],
+        [
+          160,
+          224
+        ],
+        [
+          0,
+          64
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00327.npy",
+      "crop_sha256": "45a4879f029ae33113fc2f45c7c6821247ddde409289beeb4a41fe8820d3ec96",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "a1d0a953efb2f29da92b46a755eaa4c884a9e55685f98f20b8f4d6c9ccc1107c",
+      "label_sha256": "956c96a396a5ba6c3f0ec5b73a63fb9b63f3fe4018e88a996c59127d2917cbcc",
+      "recto_voxels": 35057,
+      "sample": "sample_00327",
+      "selection": [
+        [
+          96,
+          160
+        ],
+        [
+          256,
+          320
+        ],
+        [
+          0,
+          64
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00348.npy",
+      "crop_sha256": "f4f4b075ebddd457c6c6b0325aa79eae5418d4581b3db6ba150a79be2d7f0034",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "763859c8fdc585c24d6d29e430ee0944a373fad21c302390ef45e1d6804987eb",
+      "label_sha256": "9ce3b47873212c9950460bd7c47156d0a19fcc411f03774da64c6d71edbf16ee",
+      "recto_voxels": 25603,
+      "sample": "sample_00348",
+      "selection": [
+        [
+          192,
+          256
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          64,
+          128
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00357.npy",
+      "crop_sha256": "6e624be0dd4464908711e5ec0fd61d7609b8ef755aeeb378ab78e6a3734189b7",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "4d5ea8531a2315ff827173f0b36f3c12d9fcf05f817a6ab682f820938271d532",
+      "label_sha256": "359c4788a766dc185f27883bffa0f51a9ee0e5a9f94455e71d5b90f2a62494ff",
+      "recto_voxels": 37065,
+      "sample": "sample_00357",
+      "selection": [
+        [
+          96,
+          160
+        ],
+        [
+          64,
+          128
+        ],
+        [
+          0,
+          64
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00383.npy",
+      "crop_sha256": "acbb1baa57e46d40594783ac097732b2579438f64d8cc35ba8df4ad4b647f702",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "73bb8d0449e4c9b9b9ed6dcce0789cfb02f5d9c6f9b82bc7acfd27ef25fec323",
+      "label_sha256": "b9fc78853f3c98b815e3b24b951c74170880fe27ad90337066f59d956959c0a8",
+      "recto_voxels": 39578,
+      "sample": "sample_00383",
+      "selection": [
+        [
+          32,
+          96
+        ],
+        [
+          256,
+          320
+        ],
+        [
+          0,
+          64
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00402.npy",
+      "crop_sha256": "68ca2bf04399b43c03014a8b7e112c6de00eaa15e89f37fe6bf11c5ad0df146c",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "7eb0871d061448180b79b9544dfbf8f9ce611fde93a91d5dc13392183d644bee",
+      "label_sha256": "57c0777a2db2709a6f5b2c63b6b5de18425e106488c8b4d0accaaf2d029605b6",
+      "recto_voxels": 25468,
+      "sample": "sample_00402",
+      "selection": [
+        [
+          256,
+          320
+        ],
+        [
+          64,
+          128
+        ],
+        [
+          0,
+          64
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00425.npy",
+      "crop_sha256": "741b5c48a96c9a98609806e86a24c799b66685beddb1b6416eeac6f603db5cb6",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "35ca74dc7802de4e696f2538948755dfe7eca395ea6285c01e685557889c9be2",
+      "label_sha256": "ad3d93dafdba94fd667e05db696b862d74c83fb1f7ef10451b5f284c8d3ea78d",
+      "recto_voxels": 48969,
+      "sample": "sample_00425",
+      "selection": [
+        [
+          224,
+          288
+        ],
+        [
+          256,
+          320
+        ],
+        [
+          224,
+          288
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00462.npy",
+      "crop_sha256": "bd880db0b1be3d317555cfa3593d1c0f09969eea7fc450e387fee87149262eeb",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "17fa277419d4c880b3dbd46ccb3e1999a16fde4637b7be35513db36faadbaace",
+      "label_sha256": "c1dcfa16b19799c3d8cd34ac08b6f575a04488c6e24509aced36cb884031e9eb",
+      "recto_voxels": 45868,
+      "sample": "sample_00462",
+      "selection": [
+        [
+          224,
+          288
+        ],
+        [
+          256,
+          320
+        ],
+        [
+          128,
+          192
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00503.npy",
+      "crop_sha256": "0be3e37a86d7dbae9f5403f472abeed876fe6de67e90c17b4682cb0e4b2a800e",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "05596c86c5d5232765cfe7234af4594252e3a113962960eac7f76f9ff8727cc7",
+      "label_sha256": "1610edae8835af0aa34fb5d524e405931b61012e9c84d1e7d1774985b49a7e63",
+      "recto_voxels": 40619,
+      "sample": "sample_00503",
+      "selection": [
+        [
+          192,
+          256
+        ],
+        [
+          96,
+          160
+        ],
+        [
+          160,
+          224
+        ]
+      ],
+      "source_shape": [
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00520.npy",
+      "crop_sha256": "6a88dfe339ecb9f4c7b0e91e5f06258f8647a3bdacfa52d9d9c14f39c7a6c051",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "0aae8852423aa16a6d452a109107b08b0bdef064c30524e064e1e95881388392",
+      "label_sha256": "c7d630f8cbd45be2632eff2bf2f7bbade5b067478a54edad48b9211d2dce341a",
+      "recto_voxels": 48467,
+      "sample": "sample_00520",
+      "selection": [
+        [
+          192,
+          256
+        ],
+        [
+          64,
+          128
+        ],
+        [
+          224,
+          288
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00548.npy",
+      "crop_sha256": "1cec8fb990a53fdcc6118748015cb9171601b68f5ad0f95d858c3c36a7e8fa47",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "6151ea876867a6c64dee7a27df6dc16c401e578fa2930d9462f3bf37adc81281",
+      "label_sha256": "b26631c863974f0ef5b348c04735b6e10da082c4f7554fd12fc673f275251064",
+      "recto_voxels": 40706,
+      "sample": "sample_00548",
+      "selection": [
+        [
+          160,
+          224
+        ],
+        [
+          160,
+          224
+        ],
+        [
+          32,
+          96
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00604.npy",
+      "crop_sha256": "6eb08567a50b24c324ef7e59ba00905dd17342c8af3f97799af619bc3a6f0b30",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "7439e365cc1931fb3e6b65d5260da62235702292b1ed08729594bd17555366ae",
+      "label_sha256": "3ed291c8d835eb2b04c26c2a165e197eb7645c733c4783ba2c93162bdd81248a",
+      "recto_voxels": 25908,
+      "sample": "sample_00604",
+      "selection": [
+        [
+          32,
+          96
+        ],
+        [
+          96,
+          160
+        ],
+        [
+          0,
+          64
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00618.npy",
+      "crop_sha256": "86d070d4cbb45ae3cdf916629bd3a639098c1e7cb679bf3de7ed14aa0e95f8d1",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "038153afd6122be59d8172909504d5eef41d2501b34f84d85df1ac187e9e3f12",
+      "label_sha256": "15559b7ae6723af70b592ae817012a709c2476e71a48e307d6c3d67c9c6078b4",
+      "recto_voxels": 43833,
+      "sample": "sample_00618",
+      "selection": [
+        [
+          224,
+          288
+        ],
+        [
+          192,
+          256
+        ],
+        [
+          256,
+          320
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00666.npy",
+      "crop_sha256": "12e470eab21c9a9769ccd99bc9e4f391b709a59a7248447aa012a0bd650ad80b",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "f82e7b51b3a837e3780d214cf2a113c48aed0adf52f1cdd56e4fbdbb194fa7db",
+      "label_sha256": "3511b12d01c23ca75557b8769a40bdaf0b341d563062956595959ee550d5b4c0",
+      "recto_voxels": 35071,
+      "sample": "sample_00666",
+      "selection": [
+        [
+          0,
+          64
+        ],
+        [
+          64,
+          128
+        ],
+        [
+          0,
+          64
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00726.npy",
+      "crop_sha256": "dfd6fcb56d372eddf75d6534042fae195721d68a424bca2cbd7221e7003a8219",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "36fa93f86f97e676961cbbce895c98b37718b29891dfc6b24572295654e1337b",
+      "label_sha256": "5ddd027d95490a5c8b7149519f1f993d9da73e5c45af084e74718f792d43720e",
+      "recto_voxels": 44181,
+      "sample": "sample_00726",
+      "selection": [
+        [
+          96,
+          160
+        ],
+        [
+          256,
+          320
+        ],
+        [
+          32,
+          96
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00798.npy",
+      "crop_sha256": "9afc22356deabebc9c7ddbe6ab19414ccabb08f4b18e2b7ab159164d2cf3b59f",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "ce3991e0382be5f18bd204b0e167f450a9219a0d232b88960ec465b00b252b83",
+      "label_sha256": "14813b19599def6c9ce0d29279afd59bd96668ae92a3c197e0bbf2d52f452b1e",
+      "recto_voxels": 36891,
+      "sample": "sample_00798",
+      "selection": [
+        [
+          96,
+          160
+        ],
+        [
+          64,
+          128
+        ],
+        [
+          32,
+          96
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    },
+    {
+      "crop_dtype": "uint8",
+      "crop_path": "data/holdout-crops/sample_00895.npy",
+      "crop_sha256": "2297d68fdf5a7fb2dd314f0d0748a2d5f51bee09a9cd41a01dd7cae9d473eac1",
+      "crop_shape": [
+        64,
+        64,
+        64
+      ],
+      "image_sha256": "db4c9c426fe56a545dec41b65b25b45748ff8d62c9fb878e35678e50a37abd65",
+      "label_sha256": "1bb85685e28a1dc11106764815e3bf12e0f1ddaddeb3fe824836fae2a0a1f250",
+      "recto_voxels": 44009,
+      "sample": "sample_00895",
+      "selection": [
+        [
+          32,
+          96
+        ],
+        [
+          128,
+          192
+        ],
+        [
+          224,
+          288
+        ]
+      ],
+      "source_shape": [
+        320,
+        320,
+        320
+      ]
+    }
+  ],
+  "schema": "layerlens-deterministic-crops-v1",
+  "search_step": 32,
+  "selection_target": "maximum count(label == 1)",
+  "source_manifest_sha256": "951939a1073a4828922d525b880d305449240032529646072c26e22fff955376",
+  "tie_break": "lexicographically first z,y,x start"
+}

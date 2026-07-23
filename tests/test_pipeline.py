@@ -15,6 +15,7 @@ from layerlens.pipeline import (
     estimate_normalization,
     iter_quality_tiles,
     output_shape,
+    required_halo,
 )
 from layerlens.quality import compute_quality
 
@@ -36,7 +37,7 @@ def test_tiled_maps_match_whole_volume_without_seams() -> None:
     full = compute_quality(data, stride=4, normalization=bounds)
     assembled = {
         name: np.empty(full.quality.shape, dtype=np.float32)
-        for name in (*CHANNEL_NAMES, "weight")
+        for name in (*CHANNEL_NAMES, "weight", "persistence_weight")
     }
 
     for selection, maps in iter_quality_tiles(
@@ -48,6 +49,9 @@ def test_tiled_maps_match_whole_volume_without_seams() -> None:
     for name in CHANNEL_NAMES:
         np.testing.assert_allclose(assembled[name], getattr(full, name), rtol=2e-5, atol=2e-6)
     np.testing.assert_allclose(assembled["weight"], full.weight, rtol=2e-5, atol=2e-6)
+    np.testing.assert_allclose(
+        assembled["persistence_weight"], full.persistence_weight, rtol=2e-5, atol=2e-6
+    )
 
 
 def test_ome_zarr_output_contains_maps_metadata_and_summary(tmp_path) -> None:
@@ -68,10 +72,17 @@ def test_ome_zarr_output_contains_maps_metadata_and_summary(tmp_path) -> None:
     assert transforms[0]["scale"] == pytest.approx([1.0, 31.64, 31.64, 31.64])
     assert transforms[1]["translation"] == pytest.approx([0.0, 25.82, 35.82, 45.82])
     assert 0.0 <= summary["metrics"]["score"] <= 1.0
+    assert 0.0 <= summary["metrics"]["scan_axis_persistence_score"] <= 1.0
     assert summary["runtime"]["tiles"] == 8
     assert summary["metrics"]["score"] == pytest.approx(
         compute_quality(data, stride=4).score, rel=2e-5
     )
+    assert summary["metrics"]["scan_axis_persistence_score"] == pytest.approx(
+        compute_quality(data, stride=4).persistence_score, rel=2e-5
+    )
+    assert "not an artifact probability" in summary["interpretation"][
+        "scan_axis_persistence_score"
+    ]
     written = json.loads((tmp_path / "quality.zarr.json").read_text())
     assert written["metrics"] == summary["metrics"]
     assert np.isfinite(output[:]).all()
@@ -90,10 +101,17 @@ def test_normalization_sampling_is_deterministic() -> None:
     assert first.lower < first.upper
 
 
+def test_persistence_halo_is_axis_specific_and_stride_aligned() -> None:
+    assert required_halo(0.6, 2.5, (4, 4, 4)) == (36, 20, 20)
+    assert required_halo(0.6, 2.5, (4, 4, 4), scan_axis=-1) == (20, 20, 36)
+
+
 @pytest.mark.parametrize(
     ("options", "message"),
     [
         ({"gradient_sigma": float("nan")}, "positive and finite"),
+        ({"persistence_sigma": float("nan")}, "positive and finite"),
+        ({"scan_axis": 3}, "scan_axis"),
         ({"tile_shape": 21, "stride": 4}, "multiple of its stride"),
     ],
 )

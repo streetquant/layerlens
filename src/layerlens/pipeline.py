@@ -18,8 +18,15 @@ from .io import OpenedVolume
 from .quality import QualityMap, compute_quality
 
 
-CHANNEL_NAMES = ("quality", "coherence", "sharpness", "scale_sharpness", "confidence")
-CHANNEL_COLORS = ("00FF66", "00BFFF", "FFD700", "FF6600", "A000FF")
+CHANNEL_NAMES = (
+    "quality",
+    "coherence",
+    "sharpness",
+    "scale_sharpness",
+    "confidence",
+    "scan_axis_persistence",
+)
+CHANNEL_COLORS = ("00FF66", "00BFFF", "FFD700", "FF6600", "A000FF", "FF3B6A")
 
 
 @dataclass(frozen=True)
@@ -98,25 +105,46 @@ def estimate_normalization(
 
 
 def required_halo(
-    gradient_sigma: float, tensor_sigma: float, stride: Sequence[int]
+    gradient_sigma: float,
+    tensor_sigma: float,
+    stride: Sequence[int],
+    *,
+    scan_axis: int = 0,
+    persistence_sigma: float = 8.0,
 ) -> tuple[int, ...]:
     """Return a conservative Gaussian support halo aligned to the output grid."""
 
     if (
         not math.isfinite(gradient_sigma)
         or not math.isfinite(tensor_sigma)
+        or not math.isfinite(persistence_sigma)
         or gradient_sigma <= 0
         or tensor_sigma <= 0
+        or persistence_sigma <= 0
     ):
-        raise ValueError("gradient_sigma and tensor_sigma must be positive and finite")
+        raise ValueError(
+            "gradient_sigma, tensor_sigma, and persistence_sigma must be positive and finite"
+        )
     stride_tuple = tuple(int(step) for step in stride)
     if not stride_tuple or any(step < 1 for step in stride_tuple):
         raise ValueError("stride must contain positive integers")
+    resolved_scan_axis = int(scan_axis)
+    if resolved_scan_axis < 0:
+        resolved_scan_axis += len(stride_tuple)
+    if not 0 <= resolved_scan_axis < len(stride_tuple):
+        raise ValueError(f"scan_axis must be between 0 and {len(stride_tuple) - 1}")
     coarse_sigma = max(1.5, 2.5 * gradient_sigma)
     additional_sigma = math.sqrt(coarse_sigma**2 - gradient_sigma**2)
-    radius = math.ceil(4.0 * gradient_sigma)
-    radius += math.ceil(4.0 * additional_sigma) + math.ceil(4.0 * tensor_sigma)
-    return tuple(math.ceil(radius / step) * step for step in stride_tuple)
+    gradient_radius = math.ceil(4.0 * gradient_sigma)
+    quality_radius = gradient_radius
+    quality_radius += math.ceil(4.0 * additional_sigma) + math.ceil(4.0 * tensor_sigma)
+    persistence_radius = gradient_radius + math.ceil(4.0 * persistence_sigma)
+    radii = [quality_radius] * len(stride_tuple)
+    radii[resolved_scan_axis] = max(radii[resolved_scan_axis], persistence_radius)
+    return tuple(
+        math.ceil(radius / step) * step
+        for radius, step in zip(radii, stride_tuple, strict=True)
+    )
 
 
 def output_shape(shape: Sequence[int], stride: Sequence[int]) -> tuple[int, ...]:
@@ -141,7 +169,9 @@ def _crop_result(result: QualityMap, selection: tuple[slice, ...]) -> dict[str, 
         "sharpness": result.sharpness[selection],
         "scale_sharpness": result.scale_sharpness[selection],
         "confidence": result.confidence[selection],
+        "scan_axis_persistence": result.scan_axis_persistence[selection],
         "weight": result.weight[selection],
+        "persistence_weight": result.persistence_weight[selection],
     }
 
 
@@ -153,6 +183,8 @@ def iter_quality_tiles(
     tile_shape: int | Sequence[int] = 128,
     gradient_sigma: float = 0.6,
     tensor_sigma: float = 2.5,
+    scan_axis: int = 0,
+    persistence_sigma: float = 8.0,
 ) -> Any:
     """Yield global output slices and halo-cropped quality tiles."""
 
@@ -161,7 +193,13 @@ def iter_quality_tiles(
     tile_tuple = _as_tuple(tile_shape, len(shape), "tile shape")
     if any(tile % step for tile, step in zip(tile_tuple, stride_tuple, strict=True)):
         raise ValueError("every tile dimension must be a multiple of its stride")
-    halo = required_halo(gradient_sigma, tensor_sigma, stride_tuple)
+    halo = required_halo(
+        gradient_sigma,
+        tensor_sigma,
+        stride_tuple,
+        scan_axis=scan_axis,
+        persistence_sigma=persistence_sigma,
+    )
     result_shape = output_shape(shape, stride_tuple)
 
     for start in _core_starts(shape, tile_tuple):
@@ -177,6 +215,8 @@ def iter_quality_tiles(
             tile_data,
             gradient_sigma=gradient_sigma,
             tensor_sigma=tensor_sigma,
+            scan_axis=scan_axis,
+            persistence_sigma=persistence_sigma,
             stride=stride_tuple,
             normalization=normalization,
         )
@@ -270,6 +310,8 @@ def analyze_to_ome_zarr(
     tile_shape: int | Sequence[int] = 128,
     gradient_sigma: float = 0.6,
     tensor_sigma: float = 2.5,
+    scan_axis: int = 0,
+    persistence_sigma: float = 8.0,
     max_normalization_samples: int = 1_000_000,
     summary_path: str | Path | None = None,
     overwrite: bool = False,
@@ -293,7 +335,16 @@ def analyze_to_ome_zarr(
     tile_tuple = _as_tuple(tile_shape, ndim, "tile shape")
     if any(tile % step for tile, step in zip(tile_tuple, stride_tuple, strict=True)):
         raise ValueError("every tile dimension must be a multiple of its stride")
-    halo = required_halo(gradient_sigma, tensor_sigma, stride_tuple)
+    halo = required_halo(
+        gradient_sigma,
+        tensor_sigma,
+        stride_tuple,
+        scan_axis=scan_axis,
+        persistence_sigma=persistence_sigma,
+    )
+    resolved_scan_axis = int(scan_axis)
+    if resolved_scan_axis < 0:
+        resolved_scan_axis += ndim
     estimate = estimate_normalization(volume.data, max_samples=max_normalization_samples)
     spatial_shape = output_shape(volume.shape, stride_tuple)
     spatial_chunks = tuple(
@@ -314,6 +365,8 @@ def analyze_to_ome_zarr(
     started = time.monotonic()
     numerator = 0.0
     denominator = 0.0
+    persistence_numerator = 0.0
+    persistence_denominator = 0.0
     quality_sum = 0.0
     quality_count = 0
     poor_count = 0
@@ -327,6 +380,8 @@ def analyze_to_ome_zarr(
         tile_shape=tile_tuple,
         gradient_sigma=gradient_sigma,
         tensor_sigma=tensor_sigma,
+        scan_axis=resolved_scan_axis,
+        persistence_sigma=persistence_sigma,
     ):
         for channel, name in enumerate(CHANNEL_NAMES):
             output_array[(channel, *selection)] = maps[name]
@@ -334,6 +389,12 @@ def analyze_to_ome_zarr(
         weight = maps["weight"]
         numerator += float(np.sum(quality * weight, dtype=np.float64))
         denominator += float(np.sum(weight, dtype=np.float64))
+        persistence = maps["scan_axis_persistence"]
+        persistence_weight = maps["persistence_weight"]
+        persistence_numerator += float(
+            np.sum(persistence * persistence_weight, dtype=np.float64)
+        )
+        persistence_denominator += float(np.sum(persistence_weight, dtype=np.float64))
         quality_sum += float(np.sum(quality, dtype=np.float64))
         quality_count += quality.size
         poor_count += int(np.count_nonzero(quality < 0.25))
@@ -342,6 +403,11 @@ def analyze_to_ome_zarr(
         tile_count += 1
 
     score = numerator / denominator if denominator > 1e-12 else 0.0
+    persistence_score = (
+        persistence_numerator / persistence_denominator
+        if persistence_denominator > 1e-15
+        else 0.0
+    )
     elapsed = time.monotonic() - started
     summary: dict[str, Any] = {
         "schema": "layerlens-summary-v1",
@@ -365,6 +431,9 @@ def analyze_to_ome_zarr(
         "parameters": {
             "gradient_sigma": gradient_sigma,
             "tensor_sigma": tensor_sigma,
+            "scan_axis": resolved_scan_axis,
+            "scan_axis_name": volume.axes[resolved_scan_axis],
+            "persistence_sigma": persistence_sigma,
             "stride": list(stride_tuple),
             "tile_shape": list(tile_tuple),
             "halo": list(halo),
@@ -372,12 +441,20 @@ def analyze_to_ome_zarr(
         },
         "metrics": {
             "score": score,
+            "scan_axis_persistence_score": persistence_score,
             "mean_quality": quality_sum / quality_count if quality_count else 0.0,
             "quality_p10": _histogram_quantile(histogram, 0.10),
             "quality_p50": _histogram_quantile(histogram, 0.50),
             "quality_p90": _histogram_quantile(histogram, 0.90),
             "poor_fraction": poor_count / quality_count if quality_count else 0.0,
             "good_fraction": good_count / quality_count if quality_count else 0.0,
+        },
+        "interpretation": {
+            "scan_axis_persistence_score": (
+                "Fraction of sampled transverse gradient energy that persists along the "
+                "selected scan axis. It is a structural diagnostic, not an artifact "
+                "probability or a correction to the quality score."
+            )
         },
         "runtime": {"tiles": tile_count, "seconds": elapsed},
     }

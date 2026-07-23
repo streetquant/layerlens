@@ -29,8 +29,11 @@ class QualityMap:
     sharpness: FloatArray
     scale_sharpness: FloatArray
     confidence: FloatArray
+    scan_axis_persistence: FloatArray
     weight: FloatArray
+    persistence_weight: FloatArray
     score: float
+    persistence_score: float
     stride: tuple[int, ...]
 
 
@@ -85,6 +88,8 @@ def compute_quality(
     *,
     gradient_sigma: float = 0.6,
     tensor_sigma: float = 2.5,
+    scan_axis: int = 0,
+    persistence_sigma: float = 8.0,
     stride: int | Sequence[int] = 4,
     normalization: tuple[float, float] | None = None,
 ) -> QualityMap:
@@ -99,12 +104,21 @@ def compute_quality(
     if (
         not np.isfinite(gradient_sigma)
         or not np.isfinite(tensor_sigma)
+        or not np.isfinite(persistence_sigma)
         or gradient_sigma <= 0
         or tensor_sigma <= 0
+        or persistence_sigma <= 0
     ):
-        raise ValueError("gradient_sigma and tensor_sigma must be positive and finite")
+        raise ValueError(
+            "gradient_sigma, tensor_sigma, and persistence_sigma must be positive and finite"
+        )
 
     data = _robust_normalize(volume, normalization)
+    resolved_scan_axis = int(scan_axis)
+    if resolved_scan_axis < 0:
+        resolved_scan_axis += data.ndim
+    if not 0 <= resolved_scan_axis < data.ndim:
+        raise ValueError(f"scan_axis must be between 0 and {data.ndim - 1}")
     stride_tuple = _as_tuple(stride, data.ndim)
     sample = tuple(slice(step // 2, None, step) for step in stride_tuple)
 
@@ -121,6 +135,39 @@ def compute_quality(
         gradients.append(gradient)
 
     coarse_shape = gradients[0][sample].shape
+    persistent_energy = np.zeros(coarse_shape, dtype=np.float32)
+    persistence_weight = np.zeros(coarse_shape, dtype=np.float32)
+    for axis, gradient in enumerate(gradients):
+        if axis == resolved_scan_axis:
+            continue
+        persistent = ndi.gaussian_filter1d(
+            gradient,
+            sigma=persistence_sigma,
+            axis=resolved_scan_axis,
+            mode="reflect",
+        )
+        persistent_sample = persistent[sample]
+        persistent_energy += persistent_sample * persistent_sample
+        averaged_energy = ndi.gaussian_filter1d(
+            gradient * gradient,
+            sigma=persistence_sigma,
+            axis=resolved_scan_axis,
+            mode="reflect",
+        )
+        persistence_weight += averaged_energy[sample]
+
+    scan_axis_persistence = np.zeros(coarse_shape, dtype=np.float32)
+    np.divide(
+        persistent_energy,
+        persistence_weight,
+        out=scan_axis_persistence,
+        where=persistence_weight > np.float32(1e-15),
+    )
+    scan_axis_persistence = np.clip(scan_axis_persistence, 0.0, 1.0).astype(
+        np.float32, copy=False
+    )
+    persistence_score = _weighted_mean(scan_axis_persistence, persistence_weight)
+
     matrices = np.empty((*coarse_shape, data.ndim, data.ndim), dtype=np.float32)
     for row in range(data.ndim):
         for column in range(row, data.ndim):
@@ -205,7 +252,10 @@ def compute_quality(
         sharpness=sharpness,
         scale_sharpness=scale_sharpness,
         confidence=confidence,
+        scan_axis_persistence=scan_axis_persistence,
         weight=weights,
+        persistence_weight=persistence_weight,
         score=score,
+        persistence_score=persistence_score,
         stride=stride_tuple,
     )

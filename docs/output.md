@@ -12,7 +12,7 @@ The array is channel-first:
 (c, y, x)     for 2D input
 ```
 
-The five `float32` channels are:
+The six `float32` channels are:
 
 | Index | Name | Meaning |
 |---:|---|---|
@@ -21,10 +21,11 @@ The five `float32` channels are:
 | 2 | `sharpness` | Fine-scale anisotropic edge response |
 | 3 | `scale_sharpness` | Fine-to-coarse response separation |
 | 4 | `confidence` | Amount of local tensor evidence |
+| 5 | `scan_axis_persistence` | Fraction of transverse gradient energy persistent along the selected scan axis |
 
 Every channel is finite and bounded to `[0, 1]`. The output chunk layout is
 `(1, tile_z / stride_z, tile_y / stride_y, tile_x / stride_x)`, clipped to the
-array shape, so viewers can request one component without reading all five.
+array shape, so viewers can request one component without reading all six.
 
 ## OME-Zarr metadata
 
@@ -49,7 +50,7 @@ top-level objects:
 ```json
 {
   "schema": "layerlens-summary-v1",
-  "layerlens_version": "0.1.0",
+  "layerlens_version": "0.2.0",
   "input": {},
   "output": {},
   "parameters": {},
@@ -61,6 +62,8 @@ top-level objects:
 `metrics` contains:
 
 - `score`: evidence-weighted quality mean
+- `scan_axis_persistence_score`: transverse-gradient-energy-weighted mean of
+  the persistence channel
 - `mean_quality`: unweighted quality mean
 - `quality_p10`, `quality_p50`, `quality_p90`: 1000-bin approximate quantiles
 - `poor_fraction`: fraction below `0.25`
@@ -69,13 +72,20 @@ top-level objects:
 The same summary is embedded under the root `layerlens` attribute. Runtime is
 informational and excluded from scientific comparisons.
 
+`parameters` records `scan_axis`, `scan_axis_name`, and `persistence_sigma`.
+The `interpretation` object states that persistence is a structural diagnostic,
+not an artifact probability or a correction to `score`. Consumers should not
+combine the two scalar summaries without an independently validated policy.
+
 ## Visual report
 
 `layerlens-report` renders a source plane, the quality heatmap, a
-confidence-weighted overlay, summary cards, a quality histogram, and the full
-analysis provenance into one self-contained HTML file. It loads the scalar
-summary from the companion JSON when present and otherwise uses the copy
-embedded in the OME-Zarr root.
+confidence-weighted overlay, the scan-axis-persistence heatmap, summary cards,
+a quality histogram, and the full analysis provenance into one self-contained
+HTML file. It loads the scalar summary from the companion JSON when present
+and otherwise uses the copy embedded in the OME-Zarr root. Reports remain
+compatible with legacy five-channel analyses and omit the persistence panel
+when channel 5 is absent.
 
 For 3D inputs, `--axis auto` selects the plane with the largest mean
 `(1 - quality) * confidence` away from the outer five percent of each axis.
@@ -103,6 +113,10 @@ values identify low-quality risk and VC3D's lower threshold can isolate them.
 Use `--no-invert` to store the selected channel directly. The optional
 `.volpkg.json` writer places the base and overlay volumes in one project and
 can attach the same `vc-open-data-coordinate-space` tag to both.
+
+To inspect persistence in VC3D, export
+`--channel scan_axis_persistence --no-invert`. The default remains inverted
+quality risk; persistence must not be presented as a calibrated artifact mask.
 
 This sparse fallback layout is deliberately VC3D-specific. A generic
 OME-Zarr viewer that treats absent chunks as fill values can show the

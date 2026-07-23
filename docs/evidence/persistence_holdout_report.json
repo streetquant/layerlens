@@ -1,0 +1,161 @@
+{
+  "candidate_commit": "415131c2fdcf2dbd2e9e45efefbfa5ed003ef147",
+  "decision": {
+    "passed": true,
+    "rule": "PASS only if legacy outputs are bit-identical and both ring and streak have positive Bonferroni-adjusted lower endpoints and at least 75% positive cubes"
+  },
+  "interpretation_limit": "This test concerns controlled broadcast ring and streak stress on disjoint official crops. It does not estimate artifact probability, natural-artifact prevalence, seam coverage, or a universal quality correction.",
+  "label": "confirmatory_untouched_holdout",
+  "legacy_preservation": {
+    "comparisons": 168,
+    "errors": [],
+    "fields": [
+      "quality",
+      "coherence",
+      "sharpness",
+      "scale_sharpness",
+      "confidence",
+      "weight",
+      "score"
+    ],
+    "passed": true
+  },
+  "parameters": {
+    "bonferroni_coverage": 0.975,
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20260720,
+    "families": [
+      "ring",
+      "streak"
+    ],
+    "familywise_alpha": 0.05,
+    "gradient_sigma": 0.6,
+    "persistence_sigma": 8.0,
+    "scan_axis": 0,
+    "seeds": [
+      104729,
+      130363,
+      169087
+    ],
+    "severity": 0.2,
+    "statistical_unit": "official source cube after averaging three artifact seeds",
+    "stride": 4,
+    "tensor_sigma": 2.5
+  },
+  "provenance": {
+    "artifact_suite_sha256": "0ae2b2f8ac3c55db0124c5c0cc2511df3fbbb3d905ff1831cf669b5f7e38685f",
+    "candidate_pipeline_sha256": "aa961948d06aa7a9c9b84ac84e2354c93738567cbe5babef4f2fab4e73b10d75",
+    "candidate_quality_sha256": "f7720a0001ee33cca2c20f1d191a5cdadb94d36d84332b4e76fb58d004507427",
+    "crop_manifest_sha256": "6a2c362782a17aa81ef966d90291e31bd9131c744279532087090a6e2312fb49",
+    "crop_selector_sha256": "9741d26c65a33fd616f312da24dea7c8ea066cf44a8ec3e698ac8528f2bff11b",
+    "evaluation_script_sha256": "f977402cc2e1fc92862aa424d2fd287cdf77da88a0fbdbe6b3f609a13b9c1add",
+    "exclusions_sha256": "ed5084b05f7073de3ce6f68ee1287a9c298a562f93785accfd326515a600e0f0",
+    "frozen_quality_sha256": "934c86fd297a51bb21ddb7397cd2c7f1944986921ef56a2870a05cf317c13c6d",
+    "selection_sha256": "951939a1073a4828922d525b880d305449240032529646072c26e22fff955376"
+  },
+  "records": 144,
+  "records_sha256": "b6897747fec7fbf27c7f23e6de273ac959ce2beb67e09f8be0ea7131bd03f5be",
+  "results": {
+    "ring": {
+      "bootstrap_bonferroni_ci": [
+        0.012930811302948802,
+        0.024995408595028076
+      ],
+      "cube_mean_persistence_deltas": [
+        0.017614075969570764,
+        0.013439075754093735,
+        0.02672738365842849,
+        0.05477186675640936,
+        0.017189818772139803,
+        0.04519818539740158,
+        0.00036647513890641914,
+        0.005165233743399685,
+        0.0022337862819997722,
+        0.0033260700303100097,
+        0.010917643910352548,
+        0.007697668340385951,
+        0.0019879577138820124,
+        0.02777882130837898,
+        0.026357667622571985,
+        0.02936065835924036,
+        0.022076020847547118,
+        0.018703432269354264,
+        0.013244662970185228,
+        0.03164866907220202,
+        0.013711907799929332,
+        0.024277437868879186,
+        0.023153916657334,
+        0.009164832973389122
+      ],
+      "cubes": 24,
+      "mean_persistence_delta": 0.018588052884012156,
+      "median_persistence_delta": 0.017401947370855285,
+      "passed": true,
+      "positive_cube_fraction": 1.0
+    },
+    "streak": {
+      "bootstrap_bonferroni_ci": [
+        0.014072676862430751,
+        0.025328100610472744
+      ],
+      "cube_mean_persistence_deltas": [
+        0.024832833977504947,
+        0.014024567266560243,
+        0.03156762683944806,
+        0.05795842632246436,
+        0.022686181383971937,
+        0.044073863402601145,
+        0.0013333580994901635,
+        0.007281652682412283,
+        0.003670709761389316,
+        0.0061916405028656545,
+        0.011205984358107823,
+        0.012633331564022946,
+        0.00594139824657051,
+        0.018661004026001,
+        0.02578314618733646,
+        0.02474125537475495,
+        0.021446102260820814,
+        0.01471784240258441,
+        0.013301042757656792,
+        0.028170029697179244,
+        0.015172671896330037,
+        0.020523993770585596,
+        0.021287123871679914,
+        0.014076761594994214
+      ],
+      "cubes": 24,
+      "mean_persistence_delta": 0.0192201061769722,
+      "median_persistence_delta": 0.01691683796116552,
+      "passed": true,
+      "positive_cube_fraction": 1.0
+    }
+  },
+  "sample_ids": [
+    "sample_00047",
+    "sample_00157",
+    "sample_00162",
+    "sample_00165",
+    "sample_00187",
+    "sample_00200",
+    "sample_00221",
+    "sample_00319",
+    "sample_00327",
+    "sample_00348",
+    "sample_00357",
+    "sample_00383",
+    "sample_00402",
+    "sample_00425",
+    "sample_00462",
+    "sample_00503",
+    "sample_00520",
+    "sample_00548",
+    "sample_00604",
+    "sample_00618",
+    "sample_00666",
+    "sample_00726",
+    "sample_00798",
+    "sample_00895"
+  ],
+  "schema": "layerlens-persistence-holdout-v1"
+}

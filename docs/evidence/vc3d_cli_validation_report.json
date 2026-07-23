@@ -3,6 +3,16 @@
   "validated_at": "2026-07-18",
   "mode": "headless_cli",
   "display_server": null,
+  "layerlens": {
+    "version": "0.2.0",
+    "candidate_commit": "415131c2fdcf2dbd2e9e45efefbfa5ed003ef147",
+    "demo_command": "uv run python -m benchmarks.make_demo --overwrite",
+    "analysis_channels": 6,
+    "base_zattrs_sha256": "67254e3aa7cacc791acbd08db51d19e976ff75ef960efa592257469c3bd00799",
+    "overlay_zattrs_sha256": "5ef964a11beec5b485d611abc992d775da5cd688749631bdc9aefd88db17ebd7",
+    "overlay_meta_sha256": "dc9188b23b92a872509be8f8375e715a386e1c01ca8c89d386eca7422d5746cf",
+    "project_sha256": "504c5132b008d0e8bf0620f421f40e8ca8c726ea62ba209de8b8393e037c9726"
+  },
   "vc3d": {
     "artifact": "VC3D-1fe401a-2026-07-17-linux-x86_64.AppImage",
     "source_commit": "1fe401acfb256161f5dcbb670d1c047eec5b4254",
@@ -57,6 +67,7 @@
     "task_outputs_and_temporary_paths_repository_local": true
   },
   "notes": [
+    "The demo inputs were regenerated from the LayerLens 0.2.0 candidate before this run.",
     "Both reader invocations ran without DISPLAY or WAYLAND_DISPLAY.",
     "This validates the native C++ Zarr metadata, compressor, chunk, dtype, and TIFF emission paths.",
     "It does not claim visual overlay-compositing validation."

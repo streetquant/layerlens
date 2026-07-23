@@ -15,12 +15,16 @@ papyrus regions.
   [monthly Progress Prize form](https://forms.gle/xoF5C3QsYutKP97x7)
 - **Release condition:** source, documentation, examples, and reusable outputs
   must be public
+- **Current state:** the robustness-enhanced
+  [`v0.2.0`](https://github.com/streetquant/layerlens/releases/tag/v0.2.0)
+  release is public with reproducible evidence; a winning placement cannot be
+  guaranteed
 
 The authoritative pages are the official [prize description](https://scrollprize.org/prizes),
 [2026 open problems](https://scrollprize.org/2026_open_problems), and
 [data catalog](https://scrollprize.org/data). Entrants remain responsible for
 checking the live rules and deadline before submitting. The deadline and form
-above were rechecked against the live prize page on July 18, 2026.
+above were rechecked against the live prize page on July 23, 2026.
 
 ## Rubric fit
 
@@ -33,6 +37,11 @@ feedback. LayerLens addresses those points with:
   segmentation or ink model;
 - deterministic synthetic, controlled-degradation, baseline-comparison, and
   untouched official-corpus evidence;
+- a separately preregistered ring/streak holdout on 24 disjoint official crops,
+  independent numerical verification, and a clean-reproduction claim
+  certificate;
+- exact preservation of the original five maps and score in 168/168 candidate
+  versus frozen-baseline comparisons;
 - lazy TIFF/Zarr input, bounded-memory tiled CPU execution, OME-Zarr output,
   offline HTML reports, and a native VC3D overlay adapter;
 - a public-ready Python package, pinned lockfile, CI, MIT license, exact
